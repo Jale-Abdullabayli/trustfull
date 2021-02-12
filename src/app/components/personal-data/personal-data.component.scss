@@ -1,0 +1,153 @@
+        @import '../../../styles.scss';
+        .registration {
+            padding: 50px $containerDistance;
+            .link_steps {
+                @include linkSteps;
+            }
+            .register_row {
+                margin-top: 50px;
+                form {
+                    .form-field {
+                        margin-bottom: 10px;
+                        input,
+                        textarea {
+                            @include input;
+                        }
+                        select {
+                            @include select;
+                        }
+                        textarea {
+                            height: 117px;
+                        }
+                        &.file {
+                            @include fileUpload;
+                            .add_file_text {
+                                color: $primaryColor;
+                            }
+                        }
+                    }
+                    .btn[type=submit] {
+                        @include button;
+                        width: 100%;
+                        margin-top: 20px;
+                        &:hover {
+                            opacity: 0.9;
+                        }
+                    }
+                }
+                .profil {
+                    text-align: center;
+                    .profilPhoto {
+                        position: relative;
+                        display: inline-block;
+                        height: 134px;
+                        width: 134px;
+                        img {
+                            border-radius: 50%;
+                            height: 100%;
+                            width: 100%;
+                        }
+                        i {
+                            border: 1px solid lightgray;
+                            border-radius: 50%;
+                            height: 36px;
+                            width: 36px;
+                            position: absolute;
+                            bottom: 10px;
+                            right: 0;
+                            color: lightgray;
+                            background-color: #fff;
+                            padding: 10px;
+                            text-align: center;
+                        }
+                    }
+                    .remove_photo {
+                        color: $primaryColor;
+                        display: block;
+                        margin-top: 10px;
+                        i {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .my_announcements {
+            padding: 50px $containerDistance;
+            .title {
+                margin-bottom: 20px;
+                span {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+                .search {
+                    @include search;
+                    float: right;
+                }
+            }
+            .row {
+                border: 1px solid #F7F7F7;
+                padding: 10px;
+                height: 100px;
+                .date {
+                    background-color: #F7F7F7;
+                    position: relative;
+                    min-height: 100%;
+                    span {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                .name {
+                    .announcement_name {
+                        font-size: 15px;
+                        line-height: 24px;
+                        font-weight: 500;
+                        display: block;
+                    }
+                }
+                .edit {
+                    position: relative;
+                    .btn {
+                        position: relative;
+                        color: white;
+                        width: 40%;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        &:first-child {
+                            background-color: $primaryColor;
+                        }
+                        &:last-child {
+                            background-color: #EF0021;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        @media (max-width:992px) {
+            .registration {
+                padding: 50px $containerDistance-md;
+                .register_row {
+                    >div {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+            .my_announcements {
+                padding: 50px $containerDistance-md;
+            }
+        }
+        
+        @media (max-width:768px) {
+            .registration {
+                padding: 50px $containerDistance-sm;
+            }
+            .my_announcements {
+                padding: 50px $containerDistance-sm;
+            }
+        }

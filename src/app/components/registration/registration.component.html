@@ -1,0 +1,41 @@
+<div class="registration">
+    <ul class="link_steps">
+        <li routerLink="/home">Home</li>
+        <li>Register</li>
+    </ul>
+    <div class="row register_row">
+        <div class="col-md-6 mb-3">
+            <form action="">
+                <div class="form-field">
+                    <input type="text" placeholder="Name">
+                </div>
+                <div class="form-field">
+                    <input type="text" placeholder="Surname">
+                </div>
+                <div class="form-field">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="form-field password">
+                    <input [type]="!passwordVisibility ? 'password' : 'text'" placeholder="Password">
+                    <i (click)="passwordVisibility=!passwordVisibility" [class.passwordVisible]="passwordVisibility" class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+                <div class="form-field password">
+                    <input [type]="!RepeatPasswordVisibility ? 'password' : 'text'" placeholder="Repeat password">
+                    <i (click)="RepeatPasswordVisibility=!RepeatPasswordVisibility" [class.passwordVisible]="RepeatPasswordVisibility" class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+                <div class="submit">
+                    <button type="submit" class="btn">Register</button> or
+                    <div class="icon"><i class="fa fa-facebook-official" aria-hidden="true"></i></div>
+                    <div class="icon"><i class="fa fa-google" aria-hidden="true"></i></div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-6 personal_data">
+            <span>B system is a sketch design system created with the proposal of maximizing the performance in the construction of digital touch points.</span>
+            <span class="register_text">
+                If you want to create announcement. Please after registration fill personal data from <a routerLink='/personal-data'>here</a>
+            </span>
+        </div>
+    </div>
+</div>

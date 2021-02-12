@@ -1,0 +1,196 @@
+@import '../../../styles.scss';
+.announce_detail {
+    padding: 50px $containerDistance;
+    .link_steps {
+        @include linkSteps;
+    }
+    .announce_detail_title {
+        text-align: center;
+        padding: 20px 0;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 50px;
+        .rating {
+            i {
+                font-size: 25px;
+                color: #EEEEEE;
+                cursor: pointer;
+                margin-right: 2px;
+            }
+            .activeRate {
+                color: #FF881B;
+            }
+        }
+    }
+    .announcement_img {
+        text-align: center;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .announcement_info {
+        padding: 50px 0;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: normal;
+        span {
+            display: block;
+            margin-bottom: 20px;
+        }
+        .value {
+            span {
+                width: fit-content;
+                background-color: #DFF0FF;
+                color: $primaryColor;
+                padding: 5px 10px;
+                margin-left: 20px;
+            }
+        }
+        .about_announcement,
+        .announcement_requirement,
+        .videos {
+            font-size: 15px;
+            line-height: 24px;
+            .title {
+                font-weight: 400;
+                position: relative;
+                border-bottom: 1px solid lightgray;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+                span {
+                    margin: 0;
+                }
+                i {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    font-size: 20px;
+                    cursor: pointer;
+                    font-weight: 300;
+                }
+            }
+            p {
+                color: #575757;
+                font-weight: 300;
+            }
+            .video_row {
+                .video {
+                    background-color: #585757;
+                    position: relative;
+                    height: 150px;
+                    i {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: white;
+                        font-size: 40px;
+                    }
+                }
+            }
+        }
+    }
+    .owner {
+        .owner_title {
+            position: relative;
+            margin-bottom: 70px;
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                float: left;
+                margin-right: 20px;
+            }
+            .owner_name {
+                position: relative;
+                transform: translateY(50%);
+                b {
+                    font-size: 20;
+                    line-height: 26px;
+                }
+                span {
+                    display: block;
+                    color: #585757;
+                    line-height: 20px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .owner_info {
+            .biography,
+            .contact,
+            .certificate {
+                font-size: 15px;
+                line-height: 24px;
+                .title {
+                    font-weight: 400;
+                    position: relative;
+                    border-bottom: 1px solid lightgray;
+                    margin-bottom: 30px;
+                    padding-bottom: 10px;
+                    span {
+                        margin: 0;
+                    }
+                    i {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        font-size: 20px;
+                        cursor: pointer;
+                        font-weight: 300;
+                    }
+                }
+                p {
+                    color: #575757;
+                    font-weight: 300;
+                    font-size: 15px;
+                    line-height: 24px;
+                }
+            }
+            .contact {
+                .contact_info {
+                    span {
+                        display: block;
+                        color: #575757;
+                        font-size: 15px;
+                        line-height: 24px;
+                        font-weight: 300;
+                    }
+                }
+            }
+            .certificate {
+                .certificate_photo {
+                    .img {
+                        height: 150px;
+                        background-color: #585757;
+                    }
+                }
+            }
+        }
+    }
+    .similar_announcement {
+        margin-top: 40px;
+        .similar_announcement_title {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 26px;
+        }
+        .announce_row {
+            @include card;
+            padding: 20px 0;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .announce_detail {
+        padding: 50px $containerDistance-md;
+    }
+}
+
+@media (max-width: 768px) {
+    .announce_detail {
+        padding: 50px 56px;
+    }
+}

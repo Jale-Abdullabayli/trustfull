@@ -1,0 +1,72 @@
+<div class="registration">
+    <ul class="link_steps">
+        <li routerLink="/home">Home</li>
+        <li routerLink='/registration'>Register</li>
+        <li>Personal Data</li>
+    </ul>
+    <div class="row register_row">
+        <div class="col-md-6 order-md-1 order-2">
+            <form action="">
+                <div class="form-field">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Biography"></textarea>
+                </div>
+                <div class="form-field">
+                    <select (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged" name="" id="">
+                        <option value="" selected>Business activity</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <input type="email" placeholder="Business mail address">
+                </div>
+                <div class="form-field">
+                    <input type="number" placeholder="Contact number">
+                </div>
+                <div class="form-field file">
+                    <input type="file" #fileUpload>
+                    <div class="upload_file">
+                        <span>Certificates</span>
+                        <button (click)="fileUpload.click()" type="button" class="btn">Upload Document
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <span class="add_file_text">+ Add other document</span>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6 order-md-2 order-1 profil">
+            <div class="profilPhoto">
+                <img src="../../../assets/images/default-user-image.png" alt="">
+                <i class="fa fa-camera" aria-hidden="true"></i>
+            </div>
+            <span class="remove_photo"><i class="fa fa-trash" aria-hidden="true"></i>Remove profile picture</span>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div class="my_announcements">
+    <div class="title">
+        <span>My announcements</span>
+        <div class="input-group search">
+            <input placeholder="Search" type="text" class="form-control">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 date">
+            <span class="day_month">18/06 <sup>/2020</sup></span>
+        </div>
+        <div class="col-lg-6 name">
+            <span class="announcement_name">
+                Online chess educational courses
+            </span>
+            <span>As you already know, this April, Grupo eventoplus turns 20 years old.</span>
+        </div>
+        <div class="col-lg-4 edit">
+            <button class="btn">Edit</button>
+            <button class="btn">Delete</button>
+        </div>
+    </div>
+</div> -->

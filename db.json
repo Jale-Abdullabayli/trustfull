@@ -1,0 +1,95 @@
+{
+    "categories": [{
+            "id": 1,
+            "name": "free"
+        },
+        {
+            "id": 2,
+            "name": "education"
+        },
+        {
+            "id": 3,
+            "name": "music"
+        },
+
+        {
+            "id": 4,
+            "name": "cooking"
+        }
+    ],
+    "announcements": [{
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        },
+        {
+            "id": 2,
+            "name": "Tango Course",
+            "ownerId": 1,
+            "price": 100,
+            "categoryId": 3,
+            "imgUrl": "https://theedinburghreporter.co.uk/wp-content/uploads/2020/05/Jenny-and-Ricardo-Oria-1.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 0
+        },
+        {
+            "id": 3,
+            "name": "Programming Course",
+            "ownerId": 2,
+            "price": 200,
+            "categoryId": 2,
+            "imgUrl": "",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        },
+        {
+            "id": 4,
+            "name": "Yoga Course",
+            "ownerId": 2,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://miro.medium.com/max/11630/0*C5Y8W-6e9OVIB3AM",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        },
+        {
+            "id": 5,
+            "name": "Piano Course",
+            "ownerId": 2,
+            "price": 250,
+            "categoryId": 3,
+            "imgUrl": "https://www.superprof.co.uk/blog/wp-content/uploads/2017/07/when-to-practice-piano.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 2
+        },
+        {
+            "id": 6,
+            "name": "Cooking Course",
+            "ownerId": 1,
+            "price": 200,
+            "categoryId": 4,
+            "imgUrl": "",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }
+    ],
+    "owners": [{
+            "id": 1,
+            "name": "Ayla",
+            "surname": "Abdullayeva",
+            "imgUrl": "https://www.cbc.ca/parents/content/imgs/tween-drama.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Həsən",
+            "surname": "Hacıyev",
+            "imgUrl": ""
+        }
+    ]
+
+}

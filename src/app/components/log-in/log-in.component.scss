@@ -1,0 +1,118 @@
+@import '../../../styles.scss';
+.log-in {
+    padding: 64px $containerDistance;
+    .link_steps {
+        @include linkSteps;
+    }
+    .title {
+        font-size: 28px;
+        line-height: 36px;
+        font-weight: 700;
+        display: block;
+        text-align: center;
+    }
+    .row {
+        margin-top: 40px;
+        >div {
+            .btn {
+                padding: 10px 30px;
+            }
+            &:first-child {
+                .input {
+                    input {
+                        @include input;
+                        width: 100%;
+                        &:first-child {
+                            margin-bottom: 16px;
+                        }
+                    }
+                    &.password {
+                        position: relative;
+                        i {
+                            position: absolute;
+                            right: 10px;
+                            top: 50%;
+                            transform: translateY(-100%);
+                            cursor: pointer;
+                            color: gray;
+                        }
+                        .passwordVisible {
+                            color: $primaryColor;
+                        }
+                    }
+                }
+                .submit {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 44px;
+                    margin-top: 20px;
+                    .btn {
+                        @include button;
+                        width: 70%;
+                        height: 100%;
+                    }
+                    .icon {
+                        height: 100%;
+                        width: 44px;
+                        border-radius: 50%;
+                        text-align: center;
+                        border: 2px solid lightgray;
+                        position: relative;
+                        i {
+                            color: #969696;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .forgot_password {
+                    font-size: 15px;
+                    line-height: 24px;
+                    font-weight: 500;
+                    display: inline-block;
+                    margin-top: 24px;
+                    color: $primaryColor;
+                }
+            }
+            &:last-child {
+                .register_text {
+                    font-weight: 700;
+                    font-size: 15px;
+                    line-height: 24px;
+                    color: #000000;
+                    display: block;
+                    a {
+                        text-decoration: underline;
+                        color: black;
+                        &:hover {
+                            color: $primaryColor;
+                        }
+                    }
+                }
+            }
+        }
+        span {
+            font-size: 15px;
+            line-height: 24px;
+            color: #6E6E6E;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .log-in {
+        padding: 64px $containerDistance-md;
+    }
+}
+
+@media (max-width:992px) {
+    .log-in {
+        padding: 64px $containerDistance-sm;
+    }
+}

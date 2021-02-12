@@ -1,0 +1,80 @@
+<div class="announcement">
+    <div class="category">
+        <span [class.active]="i==activeCategoryId" (mouseover)="hoverCategory(i)" (mouseleave)="leaveCategory(i)" (click)="changeCategory(i)" *ngFor="let category of categories; index as i">
+            {{category.name | titlecase }}
+        </span>
+    </div>
+    <div class="announcement_list">
+        <div class="filter_and_search_row">
+            <div class="most">
+                <span class="most_recent">Most recent</span>
+                <span class="most_relevant">Most relevant</span>
+            </div>
+            <div class="filter_and_search">
+                <div class="input-group search d-none d-sm-inline">
+                    <input placeholder="Search" type="text" class="form-control">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div class="filter d-none d-sm-inline">
+                    <button (click)="filterLineOpenState=!filterLineOpenState" class="btn">
+                        Filters
+                        <i class="fa fa-filter" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="icons d-sm-none">
+                    <i (click)="filterLineOpenState=!filterLineOpenState" class="fa fa-filter" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div [class.d-none]="filterLineOpenState" class="filter_line">
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">Free</mat-radio-button>
+                        <mat-radio-button value="2">Business</mat-radio-button>
+                    </mat-radio-group>
+                    <div class="filter_price">
+                        Price
+                        <input type="number" name="" id="" value="100"> -
+                        <input type="number" name="" id="" value="500">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">Online</mat-radio-button>
+                        <mat-radio-button value="2">Offline</mat-radio-button>
+                    </mat-radio-group>
+                    <div class="filter_location">
+                        <select name="" id="">
+                            <option value="">Select Location</option>
+                            <option value="">Baku</option>
+                            <option value="">Nakchivan</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row announce_row">
+            <div class="col-xl-3 col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let announcement of announcements">
+                <div class="card">
+                    <img class="card-img-top" onerror='this.src="../../../assets/images/defaultImg.jpg"' [src]="announcement.imgUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{announcement.name}}</h5>
+                        <p class="card-text">
+                            <span class="price" *ngIf="announcement.price!=0">{{announcement.price | currency}}</span>
+                            <span class="price" *ngIf="announcement.price==0">Free</span>
+                            <span class="owner"> by {{owners[announcement.ownerId-1].name}}
+                                {{owners[announcement.ownerId-1].surname}}</span>
+                            <i *ngFor="let item of [0,1,2,3,4]" class="fa fa-star" aria-hidden="true"></i>
+                            <a class="detail" [routerLink]="['/announcement-detail',announcement.id]">See detail
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

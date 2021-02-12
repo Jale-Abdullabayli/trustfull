@@ -1,0 +1,95 @@
+<div class="create_announcement">
+    <ul class="link_steps">
+        <li routerLink="/home">Home</li>
+        <li>Create new announcement</li>
+    </ul>
+
+    <div class="create_announcement_title"> <span>Create new announcement</span></div>
+    <div class="row form_row">
+        <div class="col-md-6">
+            <div class="form-field">
+                <select (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged" name="" id="">
+                    <option value="" selected>Select type of business activity</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <input type="text" placeholder="Title">
+            </div>
+            <div class="form-field">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Description"></textarea>
+            </div>
+            <div class="form-field">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Requirements"></textarea>
+            </div>
+            <div class="form-field">
+                <select #serviceType [class.selected]="serviceTypeChanged" (change)="serviceTypeChanged=true" name="" id="">
+                    <option disabled value="" selected>Choose the type of service</option>
+                    <option value="Volunteering">Volunteering</option>
+                    <option value="Business">Business</option>
+                </select>
+            </div>
+            <div [class.d-none]='serviceType.value!="Business"' class="form-field price">
+                <input type="number" placeholder="Price">
+                <select (change)="currencyChanged=true" [class.selected]="currencyChanged" name="" id="">
+                    <option value="" selected>Currency</option>
+                    <option value="">AZN</option>
+                    <option value="">DOLLAR</option>
+                </select>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="location">
+                <span class="location_text">Location</span>
+                <div class="form-field">
+                    <mat-radio-group (change)="changeLocation($event)" aria-label="Select an option">
+                        <mat-radio-button value="online">Online</mat-radio-button>
+                        <mat-radio-button value="offline">Offline</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+
+            <div [class.d-none]="!location" class="choose_location">
+                <div class="form-field">
+                    <select [class.selected]="serviceTypeChanged" (change)="serviceTypeChanged=true" name="" id="">
+                        <option disabled value="" selected>Choose the region</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <input type="text" name="" id="" placeholder="Additional Location Info">
+                </div>
+            </div>
+
+            <div class="file">
+                <input type="file" #fileUpload>
+                <div class="form-field">
+                    <div class="upload_file">
+                        <span>No file chosen</span>
+                        <button (click)="fileUpload.click()" type="button" class="btn">Upload Service Photo
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="video">
+                <div class="form-field">
+                    <input type="text" placeholder="Service iframe link">
+                    <span class="add_file_text">+ Add other videos</span>
+                </div>
+            </div>
+            <mat-form-field id="date_range">
+                <mat-label>Enter announcement date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date">
+                    <input matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+            <button class="btn" type="submit">Create</button>
+        </div>
+    </div>
+</div>

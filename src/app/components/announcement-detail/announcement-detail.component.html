@@ -1,0 +1,148 @@
+<div class="announce_detail">
+    <ul class="link_steps">
+        <li routerLink="/home">Home</li>
+        <li>Announcement detail</li>
+    </ul>
+    <div class="announce_detail_title">
+        <div>
+            <span *ngIf="announcement.serviceType">Online</span>
+            <span *ngIf="!announcement.serviceType">Offline</span> {{announcement.name}}
+            <span *ngIf="announcement.price==0">for free</span>
+        </div>
+        <div class="rating">
+            <i [class.activeRate]="i<=activeRate" *ngFor="let item of [0,1,2,3,4];index as i" (mouseover)="hoverStar(i)" (mouseleave)="leaveStar(i)" (click)="rate(i)" class="fa fa-star" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div *ngIf="!!announcement.imgUrl" class="announcement_img">
+        <img [src]="announcement.imgUrl" alt="photo">
+    </div>
+    <div class="announcement_info">
+        <div class="row">
+            <div class="col-1 key">
+                <span>Type</span>
+            </div>
+            <div class="col-11 value">
+                <span *ngIf="announcement.price==0">Volunteering service</span>
+                <span *ngIf="announcement.price!=0">Business service</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 key">
+                <span>Location</span>
+            </div>
+            <div class="col-11 value">
+                <span *ngIf="announcement.serviceType">Online</span>
+                <span *ngIf="!announcement.serviceType">Baku</span>
+            </div>
+        </div>
+
+        <div class="about_announcement">
+            <div class="title">
+                <span>About Announcement</span>
+                <i [class.d-none]="aboutOpenState" (click)="aboutOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
+                <i [class.d-none]="!aboutOpenState" (click)="aboutOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
+            </div>
+            <p [class.d-none]="!aboutOpenState">{{announcement.description}}</p>
+        </div>
+        <div class="announcement_requirement">
+            <div class="title">
+                <span>Requirements</span>
+                <i [class.d-none]="requirementOpenState" (click)="requirementOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
+                <i [class.d-none]="!requirementOpenState" (click)="requirementOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
+            </div>
+            <p [class.d-none]="!requirementOpenState">B system is the design system that will help you create your digital brand and its application to digital touch points.</p>
+        </div>
+        <div class="videos">
+            <div class="title">
+                <span> Videos</span>
+                <i [class.d-none]="videoOpenState" (click)="videoOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
+                <i [class.d-none]="!videoOpenState" (click)="videoOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
+            </div>
+            <div class="row video_row" [class.d-none]="!videoOpenState">
+                <div class="col-3">
+                    <div class="video">
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="video">
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="owner">
+        <div class="owner_title">
+            <img [src]="owner.imgUrl" onerror="this.src='../../../assets/images/default-user-image.png'" alt="photo">
+            <div class="owner_name">
+                <b>{{owner.name}} {{owner.surname}}</b>
+                <span>UI/UX Designer</span>
+            </div>
+        </div>
+        <div class="owner_info">
+            <div class="biography">
+                <div class="title">
+                    <span>Biography</span>
+                    <i [class.d-none]="biographyOpenState" (click)="biographyOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
+                    <i [class.d-none]="!biographyOpenState" (click)="biographyOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
+                </div>
+                <p [class.d-none]="!biographyOpenState">
+                    If you wanna improve look no further Teaching fee is going to be 20 US Dollar per hour About Me Hello everyone. I am Yousuf Azeem Makhdoomi. A title holder and National Master from Pakistan. I started playing chess in the year of 2006, because many..
+                </p>
+            </div>
+            <div class="contact">
+                <div class="title">
+                    <span>Contact information</span>
+                    <i [class.d-none]="contactOpenState" (click)="contactOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
+                    <i [class.d-none]="!contactOpenState" (click)="contactOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
+                </div>
+                <div class="contact_info" [class.d-none]="!contactOpenState">
+                    <span>info@pixsellz.io</span>
+                    <span>371 Adrien Prairie Suite 538 Palo Alto, CA</span>
+                    <span>085-545-0210</span>
+                </div>
+            </div>
+            <div class="certificate">
+                <div class="title">
+                    <span>Certificates( documents)</span>
+                    <i [class.d-none]="certificateOpenState" (click)="certificateOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
+                    <i [class.d-none]="!certificateOpenState" (click)="certificateOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
+                </div>
+                <div class="row certificate_photo" [class.d-none]="!certificateOpenState">
+                    <div class="col-3">
+                        <div class="img"></div>
+                    </div>
+                    <div class="col-3">
+                        <div class="img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="similar_announcement">
+        <span class="similar_announcement_title">Similar announcements</span>
+        <div class="row announce_row">
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-2 d-flex align-items-stretch" *ngFor="let similarAnnouncement of similarAnnouncements">
+                <div class="card">
+                    <img class="card-img-top" [src]="similarAnnouncement.imgUrl" onerror='this.src="../../../assets/images/defaultImg.jpg"' alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{similarAnnouncement.name}}</h5>
+                        <p class="card-text">
+                            <span class="price" *ngIf="similarAnnouncement.price!=0">{{similarAnnouncement.price | currency}}</span>
+                            <span class="price" *ngIf="similarAnnouncement.price==0">Free</span>
+                            <span class="owner"> by <a>{{owners[similarAnnouncement.ownerId-1].name}} {{owners[similarAnnouncement.ownerId-1].surname}}</a></span>
+                            <i *ngFor="let item of [0,1,2,3,4]" class="fa fa-star" aria-hidden="true"></i>
+                            <a class="detail" [routerLink]="['announcement-detail',announcement.id]">See detail
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

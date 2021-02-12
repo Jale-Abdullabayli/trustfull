@@ -1,0 +1,33 @@
+<div class="log-in">
+    <ul class="link_steps">
+        <li routerLink="/home">Home</li>
+        <li>Log in</li>
+    </ul>
+    <span class="title">Access Trustfull</span>
+    <div class="row">
+        <div class="col-md-6">
+            <span>Hello, enter your username and password and enter Trustfull</span>
+            <form action="">
+                <div class="input">
+                    <input type="text" placeholder="Email or number">
+                </div>
+                <div class="input password">
+                    <input [type]="!passwordVisibility ? 'password' : 'text'" placeholder="Password">
+                    <i (click)="passwordVisibility=!passwordVisibility" [class.passwordVisible]="passwordVisibility" class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+                <div class="submit">
+                    <button type="submit" class="btn">Log in</button> or
+                    <div class="icon"><i class="fa fa-facebook-official" aria-hidden="true"></i></div>
+                    <div class="icon"><i class="fa fa-google" aria-hidden="true"></i></div>
+                </div>
+            </form>
+            <a href="" class="forgot_password">Forgot your password?</a>
+        </div>
+        <div class="col-md-6">
+            <span>B system is a sketch design system created with the proposal of maximizing the performance in the construction of digital touch points.</span>
+            <span class="register_text">
+                If you don't have account. Please register from <a routerLink='/registration'>here</a> first 
+            </span>
+        </div>
+    </div>
+</div>

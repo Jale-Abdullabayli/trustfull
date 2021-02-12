@@ -1,0 +1,189 @@
+@import '../../../styles.scss';
+.home {
+    .slogan {
+        padding: 100px $containerDistance;
+        >div {
+            padding: 0;
+        }
+        &_title {
+            h1 {
+                font-weight: bold;
+                font-size: 64px;
+                line-height: 76px;
+            }
+        }
+        &_description {
+            color: gray;
+            i {
+                width: 48px;
+                height: 48px;
+                display: block;
+                border-radius: 50%;
+                border: 1px solid gray;
+                text-align: center;
+                line-height: 48px;
+                font-size: 20px;
+                margin-bottom: 16px;
+            }
+        }
+    }
+    .banner {
+        height: 500px;
+        width: 100vw;
+        &_text {
+            padding-left: $containerDistance;
+            position: relative;
+            background-color: $primaryColor;
+            >div {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                h2 {
+                    line-height: 36px;
+                    font-size: 28px;
+                    font-family: 'Yusei Magic', sans-serif;
+                    color: #fff;
+                    font-weight: 700;
+                }
+                span {
+                    line-height: 32px;
+                    font-size: 22px;
+                    color: #fff;
+                    font-weight: 300;
+                    display: block;
+                }
+                button {
+                    @include button;
+                    margin-top: 40px;
+                    background-color: #fff;
+                    color: black;
+                }
+            }
+        }
+        &_img {
+            padding: 0;
+            img {
+                background-size: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .announcement_title {
+        font-size: 40px;
+        line-height: 50px;
+        font-weight: 700;
+        text-align: center;
+        padding: 85px 0;
+    }
+    .client_opinion {
+        padding: 70px $containerDistance;
+        .client_opinion_title {
+            font-size: 30px;
+            font-weight: 500;
+            display: block;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .card {
+            padding: 23px;
+            &:hover {
+                border-color: $primaryColor;
+            }
+            .card-img-top {
+                text-align: center;
+                margin-bottom: 24px;
+                i {
+                    font-size: 30px;
+                }
+            }
+            .card-body {
+                padding: 0;
+                font-size: 15px;
+                line-height: 24px;
+                font-weight: 300;
+                .card-text {
+                    color: #575757;
+                    margin-bottom: 28px;
+                }
+                .client {
+                    img {
+                        border-radius: 50%;
+                        float: left;
+                        width: 56px;
+                        height: 56px;
+                        margin-right: 16px;
+                    }
+                    .client_info {
+                        b {
+                            display: block;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .home {
+        .slogan {
+            padding: 100px $containerDistance-md;
+            i {
+                display: none;
+            }
+            &_title {
+                h1 {
+                    font-size: 40px;
+                    line-height: 50px;
+                }
+            }
+        }
+        .banner {
+            height: 768px;
+            &_img {
+                height: 360px;
+            }
+            &_text {
+                padding-left: 0;
+                text-align: center;
+                height: 408px;
+                >div {
+                    padding: 0 24px;
+                }
+            }
+        }
+        .client_opinion {
+            padding: 56px $containerDistance-md;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        .slogan {
+            padding: 100px $containerDistance-sm;
+        }
+        .banner {
+            height: 704px;
+            &_img {
+                height: 232px;
+            }
+            &_text {
+                height: 472px;
+                padding-left: 0;
+                >div {
+                    padding: 0 $containerDistance-sm;
+                }
+            }
+        }
+        .announcement_title {
+            font-size: 28px;
+            line-height: 36px;
+        }
+        .client_opinion {
+            padding: 48px $containerDistance-sm;
+        }
+    }
+}

@@ -1,0 +1,106 @@
+@import '../../../styles.scss';
+.create_announcement {
+    padding: 50px $containerDistance;
+    .link_steps {
+        @include linkSteps;
+    }
+    .create_announcement_title {
+        span {
+            font-size: 25px;
+            font-weight: 500;
+            display: block;
+            text-align: center;
+            margin: 50px;
+        }
+    }
+    .form_row {
+        >div[class*=col] {
+            .form-field {
+                margin-bottom: 22px;
+                input,
+                textarea {
+                    @include input;
+                }
+                select {
+                    @include select;
+                }
+                input[type=file] {
+                    display: none;
+                }
+                textarea {
+                    height: 111px;
+                }
+            }
+            .location {
+                .location_text {
+                    font-weight: 500;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                .form-field {
+                    display: inline-block;
+                    mat-radio-button:last-child {
+                        margin-left: 15px;
+                    }
+                }
+            }
+            .price {
+                input {
+                    display: inline-block;
+                    width: 70%;
+                }
+                select {
+                    width: 25%;
+                    float: right;
+                }
+            }
+            .file {
+                @include fileUpload;
+            }
+            .add_file_text {
+                color: $primaryColor;
+                margin-top: 5px;
+                display: inline-block;
+                cursor: pointer;
+            }
+            button[type=submit] {
+                @include button;
+                background-color: #00AA79;
+                float: right;
+            }
+            #date_range {
+                display: block;
+                width: 100%;
+                margin-bottom: 22px;
+                background-color: #fff;
+                border: 2px solid lightgray;
+                outline: none;
+                padding: 10px;
+                border-radius: 5px;
+                mat-date-range-input {
+                    input {
+                        margin: 0;
+                    }
+                }
+                &:focus {
+                    border: 2px solid $primaryColor;
+                }
+            }
+             ::ng-deep .mat-form-field-underline {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .create_announcement {
+        padding: 50px $containerDistance-md;
+    }
+}
+
+@media (max-width:768px) {
+    .create_announcement {
+        padding: 50px $containerDistance-sm;
+    }
+}

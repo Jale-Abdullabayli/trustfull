@@ -1,0 +1,93 @@
+@import '../../../styles.scss';
+.registration {
+    padding: 50px $containerDistance;
+    .link_steps {
+        @include linkSteps;
+    }
+    .register_row {
+        margin-top: 50px;
+        form {
+            .form-field {
+                margin-bottom: 10px;
+                input {
+                    @include input;
+                }
+                &.password {
+                    position: relative;
+                    i {
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                        color: gray;
+                    }
+                    .passwordVisible {
+                        color: $primaryColor;
+                    }
+                }
+            }
+            .submit {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 44px;
+                margin-top: 20px;
+                .btn {
+                    @include button;
+                    width: 70%;
+                    height: 100%;
+                }
+                .icon {
+                    height: 100%;
+                    width: 44px;
+                    display: inline-block;
+                    border-radius: 50%;
+                    text-align: center;
+                    border: 2px solid lightgray;
+                    position: relative;
+                    i {
+                        color: #969696;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        .personal_data {
+            span {
+                font-size: 15px;
+                line-height: 24px;
+                color: #6E6E6E;
+                display: block;
+                margin-bottom: 20px;
+            }
+            .register_text {
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 24px;
+                color: #000000;
+                display: block;
+                a {
+                    text-decoration: underline;
+                    color: black;
+                    &:hover {
+                        color: $primaryColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .registration {
+        padding: 50px $containerDistance-md;
+    }
+    .registration {
+        padding: 50px $containerDistance-sm;
+    }
+}

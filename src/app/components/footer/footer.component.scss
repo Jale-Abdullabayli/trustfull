@@ -1,0 +1,113 @@
+            @import '../../../styles.scss';
+            footer {
+                border-top: 2px solid lightgray;
+                >.create_new_announcement {
+                    padding: 72px 0;
+                    text-align: center;
+                    span {
+                        font-size: 22px;
+                        line-height: 32px;
+                        display: block
+                    }
+                    button {
+                        @include button;
+                        margin-top: 32px;
+                    }
+                }
+                .footer_row {
+                    padding: 64px $containerDistance;
+                    div[class*="col"] {
+                        height: fit-content;
+                        >div {
+                            h6 {
+                                font-weight: 500;
+                                font-size: 16px;
+                                line-height: 22px;
+                                margin-bottom: 16px;
+                            }
+                        }
+                        .copy_right {
+                            h6 {
+                                font-weight: bold;
+                            }
+                            p {
+                                font-weight: 300;
+                                color: #6E6E6E;
+                                font-size: 12px;
+                                line-height: 18px;
+                            }
+                        }
+                        .tags {
+                            span {
+                                background-color: #E5F1FF;
+                                color: $primaryColor;
+                                display: inline-block;
+                                font-size: 10px;
+                                line-height: 12px;
+                                padding: 4px 7px;
+                                margin-right: 10px;
+                                font-weight: 500;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                margin-bottom: 10px;
+                            }
+                        }
+                        .sosial_media {
+                            .accounts {
+                                >div {
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    i {
+                                        color: #969696;
+                                        margin-right: 15px;
+                                        margin-bottom: 10px;
+                                        width: 18px;
+                                        height: 18px;
+                                    }
+                                }
+                            }
+                        }
+                        .contact {
+                            span {
+                                font-size: 14px;
+                                line-height: 20px;
+                                font-weight: 400;
+                                display: block;
+                                color: #585757;
+                                margin-bottom: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            @media (max-width: 992px) {
+                footer {
+                    >.create_new_announcement {
+                        padding: 56px $containerDistance-md;
+                    }
+                    .footer_row {
+                        padding: 64px $containerDistance-md;
+                    }
+                }
+            }
+            
+            @media (max-width: 768px) {
+                footer {
+                    >.create_new_announcement {
+                        padding: 46px $containerDistance-sm;
+                    }
+                    .footer_row {
+                        padding: 64px $containerDistance-sm;
+                        div[class*="col"] {
+                            text-align: center;
+                            margin-bottom: 20px;
+                            >div {
+                                h6 {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }

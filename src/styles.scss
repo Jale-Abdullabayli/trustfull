@@ -1,1 +1,257 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$trustfull-primary: mat-palette($mat-indigo);
+$trustfull-accent: mat-palette($mat-pink, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$trustfull-warn: mat-palette($mat-red);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$trustfull-theme: mat-light-theme(( color: ( primary: $trustfull-primary, accent: $trustfull-accent, warn: $trustfull-warn, )));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($trustfull-theme);
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+$primaryColor:#007EF3;
+$secondaryColor:#F7901F;
+$containerDistance:216px;
+$containerDistance-md:112px;
+$containerDistance-sm:16px;
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $primaryColor;
+}
+
+ ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    color: $primaryColor;
+    background-color: $primaryColor;
+}
+
+ ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: $primaryColor;
+}
+
+button,
+input,
+textarea,
+select,
+i,
+span {
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+}
+
+@mixin button {
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 24px;
+    padding: 8px 24px;
+    background-color: $primaryColor;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+@mixin input {
+    border: 2px solid lightgray;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    &:focus {
+        border: 2px solid $primaryColor;
+    }
+    &::placeholder {
+        color: gray;
+    }
+}
+
+@mixin select {
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+    width: 100%;
+    &:focus {
+        border-color: $primaryColor;
+    }
+    color: gray;
+    &.selected {
+        color: black;
+    }
+    option {
+        color: black;
+    }
+}
+
+@mixin fileUpload {
+    width: 100%;
+    input[type=file] {
+        display: none;
+    }
+    .upload_file {
+        position: relative;
+        border: 2px solid lightgray;
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+        span {
+            color: gray;
+        }
+        .btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            outline: none;
+            font-size: 14px;
+            background-color: $primaryColor;
+            height: 100%;
+            color: #ffffff;
+            border-radius: 0;
+            i {
+                margin-left: 3px;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+@mixin search {
+    width: 250px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    * {
+        display: inline;
+    }
+    input {
+        height: 100%;
+        width: 90%;
+        border: none;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+@mixin linkSteps {
+    padding: 0;
+    list-style-type: none;
+    li {
+        cursor: pointer;
+        position: relative;
+        margin-right: 20px;
+        float: left;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 500;
+        &:not(:last-child) {
+            &::after {
+                content: ">";
+                position: absolute;
+                right: -15px;
+            }
+        }
+        &:last-child {
+            color: $primaryColor;
+        }
+        &:hover {
+            color: $primaryColor;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+@mixin card {
+    .card {
+        &:hover {
+            border-color: $primaryColor;
+        }
+        .card-img-top {
+            height: 150px;
+        }
+        .card-body {
+            padding: 10px;
+            position: relative;
+            .card-title {
+                font-size: 22px;
+                line-height: 28px;
+                font-weight: 500;
+            }
+            .card-text {
+                font-size: 15px;
+                line-height: 24px;
+                font-weight: 400;
+                >i {
+                    color: #FF8813;
+                }
+                span {
+                    display: block;
+                }
+                .price,
+                .detail {
+                    color: $primaryColor;
+                }
+                .detail {
+                    cursor: pointer;
+                    text-decoration: none;
+                    float: right;
+                }
+                .owner {
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+    @media (max-width: 992px) {
+        .card {
+            .card-img-top {
+                height: 215px;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .card {
+            .card-img-top {
+                height: 195px;
+            }
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1200px) {
+        .card {
+            .card-img-top {
+                height: 200px;
+            }
+        }
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

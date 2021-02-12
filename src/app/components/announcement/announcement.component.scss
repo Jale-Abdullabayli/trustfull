@@ -1,0 +1,137 @@
+        @import '../../../styles.scss';
+        .announcement {
+            .category {
+                padding: 17px 16px;
+                text-align: center;
+                border-bottom: 2px solid #F7F7F7;
+                margin-bottom: 50px;
+                span {
+                    padding: 17px 26px;
+                    font-size: 15px;
+                    line-height: 24px;
+                    cursor: pointer;
+                    &.active {
+                        background-color: #F7F7F7;
+                        border-bottom: 2px solid black;
+                    }
+                    &:hover {
+                        opacity: 0.9;
+                    }
+                }
+            }
+            .announcement_list {
+                padding: 0 $containerDistance;
+                .filter_and_search_row {
+                    padding: 17px 0;
+                    position: relative;
+                    .most {
+                        span {
+                            cursor: pointer;
+                            &.most_recent {
+                                padding-right: 15px;
+                                margin-right: 15px;
+                                border-right: 1px solid lightgray
+                            }
+                            &:hover {
+                                color: $primaryColor;
+                            }
+                        }
+                    }
+                    .filter_and_search {
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        >div {
+                            height: 36px;
+                        }
+                        .search {
+                            @include search;
+                            float: left;
+                            margin-right: 10px;
+                        }
+                        .filter {
+                            .btn {
+                                border: 1px solid lightgray;
+                                font-size: 15px;
+                                line-height: 24px;
+                                font-weight: 700;
+                                &:focus {
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+                        .icons {
+                            position: relative;
+                            i {
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .filter_line {
+                    padding: 10px 0;
+                    .row {
+                        >div[class*=col] {
+                            padding: 0;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            mat-radio-group {
+                                mat-radio-button {
+                                    margin-left: 10px;
+                                }
+                            }
+                            >div {
+                                input,
+                                select {
+                                    padding: 5px;
+                                    border: 1px solid lightgray;
+                                }
+                                &.filter_price {
+                                    input {
+                                        width: 70px;
+                                    }
+                                }
+                                &.filter_location {
+                                    select {
+                                        width: 150px
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .announce_row {
+                    @include card;
+                    padding: 30px 0;
+                    >div {
+                        margin-bottom: 24px;
+                    }
+                }
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .announcement {
+                .announcement_list {
+                    padding: 0 24px;
+                }
+                .filter_and_search {
+                    .search {
+                        width: 200px !important;
+                    }
+                }
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .announcement {
+                .announcement_list {
+                    padding: 0 $containerDistance-sm;
+                }
+            }
+        }
