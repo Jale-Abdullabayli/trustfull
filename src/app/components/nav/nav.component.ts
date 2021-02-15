@@ -7,22 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  fav:string ="favorite_border";
-  user:string="person_outline";
-  language='Az';
-  languagePanelOpenState:boolean=false;
-  menuOpenState:boolean=false;
+  fav: string = "favorite_border";
+  user: string = "person_outline";
+  language = 'Az';
+  languagePanelOpenState: boolean = false;
+  menuOpenState: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  scrollAnnouncements(){
-document.getElementById("announcement").scrollIntoView({behavior:"smooth"});
+  scrollAnnouncements() {
+    document.getElementById("announcement").scrollIntoView({ behavior: "smooth" });
   }
 
-  scrollContact(){
-
+  scrollContact() {
+    document.getElementById("contacts").scrollIntoView({ behavior: "smooth" });
   }
 
 }

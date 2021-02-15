@@ -48,6 +48,7 @@
                             width: 100%;
                         }
                         i {
+                            cursor: pointer;
                             border: 1px solid lightgray;
                             border-radius: 50%;
                             height: 36px;
@@ -62,11 +63,15 @@
                         }
                     }
                     .remove_photo {
+                        cursor: pointer;
                         color: $primaryColor;
                         display: block;
                         margin-top: 10px;
                         i {
                             margin-right: 5px;
+                        }
+                        &:hover {
+                            color: red;
                         }
                     }
                 }
@@ -76,7 +81,7 @@
         .my_announcements {
             padding: 50px $containerDistance;
             .title {
-                margin-bottom: 20px;
+                margin-bottom: 40px;
                 span {
                     font-size: 20px;
                     font-weight: 500;
@@ -84,12 +89,18 @@
                 .search {
                     @include search;
                     float: right;
+                    position: relative;
+                    i {
+                        position: absolute;
+                        right: 5px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
                 }
             }
             .row {
                 border: 1px solid #F7F7F7;
-                padding: 10px;
-                height: 100px;
+                padding: 20px;
                 .date {
                     background-color: #F7F7F7;
                     position: relative;
@@ -114,7 +125,7 @@
                     .btn {
                         position: relative;
                         color: white;
-                        width: 40%;
+                        width: 45%;
                         top: 50%;
                         transform: translateY(-50%);
                         &:first-child {
@@ -149,5 +160,11 @@
             }
             .my_announcements {
                 padding: 50px $containerDistance-sm;
+                .row {
+                    text-align: center;
+                    >div {
+                        margin: 10px;
+                    }
+                }
             }
         }

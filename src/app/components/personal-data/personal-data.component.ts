@@ -6,11 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./personal-data.component.scss']
 })
 export class PersonalDataComponent implements OnInit {
-  businessActivityChanged:boolean=false;
-
+  businessActivityChanged: boolean = false;
+  userProfilPhoto: string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setProfilPhoto(event) {
+    if (event.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.userProfilPhoto = event.target.result;
+      }
+    }
+  }
+
+  removeProfilePhoto(){
+    this.userProfilPhoto="";
+  }
 }

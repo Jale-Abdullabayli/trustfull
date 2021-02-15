@@ -36,15 +36,16 @@
         </div>
         <div class="col-md-6 order-md-2 order-1 profil">
             <div class="profilPhoto">
-                <img src="../../../assets/images/default-user-image.png" alt="">
-                <i class="fa fa-camera" aria-hidden="true"></i>
+                <img [src]="userProfilPhoto" onerror='this.src="../../../assets/images/default-user-image.png"' alt="">
+                <i (click)="file.click()" class="fa fa-camera" aria-hidden="true"></i>
+                <input type="file" accept="image/*" (change)="setProfilPhoto($event)" #file class="d-none">
             </div>
-            <span class="remove_photo"><i class="fa fa-trash" aria-hidden="true"></i>Remove profile picture</span>
+            <span class="remove_photo" (click)="removeProfilePhoto()"><i class="fa fa-trash" aria-hidden="true"></i>Remove profile picture</span>
         </div>
     </div>
 </div>
 
-<!-- 
+
 <div class="my_announcements">
     <div class="title">
         <span>My announcements</span>
@@ -55,18 +56,18 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-2 date">
+        <div class="col-md-2 date">
             <span class="day_month">18/06 <sup>/2020</sup></span>
         </div>
-        <div class="col-lg-6 name">
+        <div class="col-md-6 name">
             <span class="announcement_name">
                 Online chess educational courses
             </span>
             <span>As you already know, this April, Grupo eventoplus turns 20 years old.</span>
         </div>
-        <div class="col-lg-4 edit">
+        <div class="col-md-4 edit">
             <button class="btn">Edit</button>
             <button class="btn">Delete</button>
         </div>
     </div>
-</div> -->
+</div>

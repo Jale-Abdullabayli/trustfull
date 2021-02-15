@@ -149,6 +149,9 @@ span {
             box-shadow: none;
         }
     }
+    &:focus {
+        border: 1px solid $primaryColor;
+    }
 }
 
 @mixin linkSteps {
