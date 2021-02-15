@@ -26,4 +26,10 @@ export class PersonalDataComponent implements OnInit {
   removeProfilePhoto(){
     this.userProfilPhoto="";
   }
+  deleteAnnouncement(){
+    if (confirm('Are you sure you want to delete this announcement?')) {
+ 
+    } else {
+    }
+  }
 }

@@ -18,28 +18,8 @@
                 padding: 10px 30px;
             }
             &:first-child {
-                .input {
-                    input {
-                        @include input;
-                        width: 100%;
-                        &:first-child {
-                            margin-bottom: 16px;
-                        }
-                    }
-                    &.password {
-                        position: relative;
-                        i {
-                            position: absolute;
-                            right: 10px;
-                            top: 50%;
-                            transform: translateY(-100%);
-                            cursor: pointer;
-                            color: gray;
-                        }
-                        .passwordVisible {
-                            color: $primaryColor;
-                        }
-                    }
+                .form-field {
+                    @include form-field;
                 }
                 .submit {
                     display: flex;

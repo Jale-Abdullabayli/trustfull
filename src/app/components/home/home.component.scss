@@ -39,6 +39,7 @@
                 top: 50%;
                 transform: translateY(-50%);
                 h2 {
+                    margin-bottom: 40px;
                     line-height: 36px;
                     font-size: 28px;
                     font-family: 'Yusei Magic', sans-serif;
@@ -175,6 +176,9 @@
                 padding-left: 0;
                 >div {
                     padding: 0 $containerDistance-sm;
+                    h2 {
+                        margin-bottom: 24px;
+                    }
                 }
             }
         }

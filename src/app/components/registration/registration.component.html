@@ -7,20 +7,25 @@
         <div class="col-md-6 mb-3">
             <form action="">
                 <div class="form-field">
-                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder=" ">
+                    <label for="">Name</label>
                 </div>
                 <div class="form-field">
-                    <input type="text" placeholder="Surname">
+                    <input type="text" placeholder=" ">
+                    <label for="">Surname</label>
                 </div>
                 <div class="form-field">
-                    <input type="email" placeholder="Email">
+                    <input type="email" placeholder=" ">
+                    <label for="">Email</label>
                 </div>
                 <div class="form-field password">
-                    <input [type]="!passwordVisibility ? 'password' : 'text'" placeholder="Password">
+                    <input [type]="!passwordVisibility ? 'password' : 'text'" placeholder=" ">
+                    <label for="">Password</label>
                     <i (click)="passwordVisibility=!passwordVisibility" [class.passwordVisible]="passwordVisibility" class="fa fa-eye" aria-hidden="true"></i>
                 </div>
                 <div class="form-field password">
-                    <input [type]="!RepeatPasswordVisibility ? 'password' : 'text'" placeholder="Repeat password">
+                    <input [type]="!RepeatPasswordVisibility ? 'password' : 'text'" placeholder=" ">
+                    <label for="">Repeat password</label>
                     <i (click)="RepeatPasswordVisibility=!RepeatPasswordVisibility" [class.passwordVisible]="RepeatPasswordVisibility" class="fa fa-eye" aria-hidden="true"></i>
                 </div>
                 <div class="submit">

@@ -8,7 +8,8 @@
         <div class="col-md-6 order-md-1 order-2">
             <form action="">
                 <div class="form-field">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Biography"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" placeholder=" "></textarea>
+                    <label for="">Biography</label>
                 </div>
                 <div class="form-field">
                     <select (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged" name="" id="">
@@ -16,12 +17,14 @@
                     </select>
                 </div>
                 <div class="form-field">
-                    <input type="email" placeholder="Business mail address">
+                    <input type="email" placeholder=" ">
+                    <label for="">Business mail address</label>
                 </div>
                 <div class="form-field">
-                    <input type="number" placeholder="Contact number">
+                    <input type="tel" placeholder=" ">
+                    <label for="">Contact number</label>
                 </div>
-                <div class="form-field file">
+                <div class="file  form-field">
                     <input type="file" #fileUpload>
                     <div class="upload_file">
                         <span>Certificates</span>
@@ -30,6 +33,7 @@
                         </button>
                     </div>
                     <span class="add_file_text">+ Add other document</span>
+
                 </div>
                 <button type="submit" class="btn">Submit</button>
             </form>
@@ -40,6 +44,7 @@
                 <i (click)="file.click()" class="fa fa-camera" aria-hidden="true"></i>
                 <input type="file" accept="image/*" (change)="setProfilPhoto($event)" #file class="d-none">
             </div>
+            <br>
             <span class="remove_photo" (click)="removeProfilePhoto()"><i class="fa fa-trash" aria-hidden="true"></i>Remove profile picture</span>
         </div>
     </div>
@@ -67,7 +72,7 @@
         </div>
         <div class="col-md-4 edit">
             <button class="btn">Edit</button>
-            <button class="btn">Delete</button>
+            <button class="btn" (click)="deleteAnnouncement()">Delete</button>
         </div>
     </div>
 </div>
