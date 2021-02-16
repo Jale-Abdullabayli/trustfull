@@ -17,23 +17,15 @@
         <img [src]="announcement.imgUrl" alt="photo">
     </div>
     <div class="announcement_info">
-        <div class="row">
-            <div class="col-1 key">
-                <span>Type</span>
-            </div>
-            <div class="col-11 value">
-                <span *ngIf="announcement.price==0">Volunteering service</span>
-                <span *ngIf="announcement.price!=0">Business service</span>
-            </div>
+        <div class="key-value">
+            <span class="key">Type</span>
+            <span class="value" *ngIf="announcement.price==0">Volunteering service</span>
+            <span class="value" *ngIf="announcement.price!=0">Business service</span>
         </div>
-        <div class="row">
-            <div class="col-1 key">
-                <span>Location</span>
-            </div>
-            <div class="col-11 value">
-                <span *ngIf="announcement.serviceType">Online</span>
-                <span *ngIf="!announcement.serviceType">Baku</span>
-            </div>
+        <div class="key-value">
+            <span class="key">Location</span>
+            <span class="value" *ngIf="announcement.serviceType">Online</span>
+            <span class="value" *ngIf="!announcement.serviceType">Baku</span>
         </div>
 
         <div class="about_announcement">
@@ -59,14 +51,10 @@
                 <i [class.d-none]="!videoOpenState" (click)="videoOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
             </div>
             <div class="row video_row" [class.d-none]="!videoOpenState">
-                <div class="col-3">
+                <div class="col-sm-6 col-lg-4 col-xl-3 mb-3" *ngFor="let item of [0,1,2,3]">
                     <div class="video">
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="video">
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -101,22 +89,22 @@
                 <div class="contact_info" [class.d-none]="!contactOpenState">
                     <span>info@pixsellz.io</span>
                     <span>371 Adrien Prairie Suite 538 Palo Alto, CA</span>
-                    <span>085-545-0210</span>
+                    <span>+994555555555 <a target="blank" href="https://api.whatsapp.com/send?phone=+994555555555"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></span>
                 </div>
             </div>
             <div class="certificate">
                 <div class="title">
-                    <span>Certificates( documents)</span>
+                    <span>Certificates (documents)</span>
                     <i [class.d-none]="certificateOpenState" (click)="certificateOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
                     <i [class.d-none]="!certificateOpenState" (click)="certificateOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
                 </div>
-                <div class="row certificate_photo" [class.d-none]="!certificateOpenState">
-                    <div class="col-3">
-                        <div class="img"></div>
+                <div class="row" [class.d-none]="!certificateOpenState">
+                    <div class="col-sm-6 col-lg-4 col-xl-3 mb-3" *ngFor="let item of [0,1,2,3]">
+                        <div class="certificate_photo">
+                            <img src="../../../assets/images/istockphoto-1034467592-612x612.jpg" alt="">
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <div class="img"></div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -126,7 +114,7 @@
     <div class="similar_announcement">
         <span class="similar_announcement_title">Similar announcements</span>
         <div class="row announce_row">
-            <div class="col-xl-3 col-lg-4 col-md-6 mb-2 d-flex align-items-stretch" *ngFor="let similarAnnouncement of similarAnnouncements">
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch" *ngFor="let similarAnnouncement of similarAnnouncements">
                 <div class="card">
                     <img class="card-img-top" [src]="similarAnnouncement.imgUrl" onerror='this.src="../../../assets/images/defaultImg.jpg"' alt="Card image cap">
                     <div class="card-body">
@@ -136,7 +124,7 @@
                             <span class="price" *ngIf="similarAnnouncement.price==0">Free</span>
                             <span class="owner"> by <a>{{owners[similarAnnouncement.ownerId-1].name}} {{owners[similarAnnouncement.ownerId-1].surname}}</a></span>
                             <i *ngFor="let item of [0,1,2,3,4]" class="fa fa-star" aria-hidden="true"></i>
-                            <a class="detail" [routerLink]="['announcement-detail',announcement.id]">See detail
+                            <a class="detail" [routerLink]="[ 'announcement-detail',announcement.id]">See detail
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </p>

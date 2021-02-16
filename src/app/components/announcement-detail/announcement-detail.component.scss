@@ -5,11 +5,9 @@
         @include linkSteps;
     }
     .announce_detail_title {
+        @include header;
         text-align: center;
         padding: 20px 0;
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 50px;
         .rating {
             i {
                 font-size: 25px;
@@ -25,7 +23,7 @@
     .announcement_img {
         text-align: center;
         img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
         }
     }
@@ -34,61 +32,74 @@
         font-size: 15px;
         line-height: 24px;
         font-weight: normal;
-        span {
-            display: block;
+        .key-value {
+            position: relative;
             margin-bottom: 20px;
-        }
-        .value {
             span {
-                width: fit-content;
-                background-color: #DFF0FF;
-                color: $primaryColor;
-                padding: 5px 10px;
-                margin-left: 20px;
+                &.value {
+                    position: absolute;
+                    left: 50px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: fit-content;
+                    background-color: #DFF0FF;
+                    color: $primaryColor;
+                    padding: 5px 10px;
+                    margin-left: 20px;
+                    border-radius: 5px;
+                    height: 32px;
+                }
             }
         }
-        .about_announcement,
-        .announcement_requirement,
-        .videos {
-            font-size: 15px;
-            line-height: 24px;
-            .title {
-                font-weight: 400;
+        .video_row {
+            .video {
+                background-color: #585757;
                 position: relative;
-                border-bottom: 1px solid lightgray;
-                margin-bottom: 30px;
-                padding-bottom: 10px;
-                span {
-                    margin: 0;
+                iframe {
+                    height: 120px;
+                    width: 100%;
                 }
                 i {
                     position: absolute;
-                    right: 0;
-                    top: 0;
-                    font-size: 20px;
-                    cursor: pointer;
-                    font-weight: 300;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: white;
+                    font-size: 40px;
                 }
             }
-            p {
-                color: #575757;
+        }
+    }
+    .about_announcement,
+    .announcement_requirement,
+    .videos,
+    .biography,
+    .contact,
+    .certificate {
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 20px;
+        .title {
+            font-weight: 400;
+            position: relative;
+            border-bottom: 1px solid lightgray;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            span {
+                margin: 0;
+            }
+            i {
+                position: absolute;
+                right: 0;
+                top: 0;
+                font-size: 20px;
+                cursor: pointer;
                 font-weight: 300;
             }
-            .video_row {
-                .video {
-                    background-color: #585757;
-                    position: relative;
-                    height: 150px;
-                    i {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        color: white;
-                        font-size: 40px;
-                    }
-                }
-            }
+        }
+        p {
+            color: #575757;
+            font-weight: 300;
         }
     }
     .owner {
@@ -96,11 +107,12 @@
             position: relative;
             margin-bottom: 70px;
             img {
-                width: 100px;
-                height: 100px;
+                width: 96px;
+                height: 96px;
                 border-radius: 50%;
                 float: left;
                 margin-right: 20px;
+                image-rendering: pixelated;
             }
             .owner_name {
                 position: relative;
@@ -118,52 +130,36 @@
             }
         }
         .owner_info {
-            .biography,
-            .contact,
-            .certificate {
-                font-size: 15px;
-                line-height: 24px;
-                .title {
-                    font-weight: 400;
-                    position: relative;
-                    border-bottom: 1px solid lightgray;
-                    margin-bottom: 30px;
-                    padding-bottom: 10px;
-                    span {
-                        margin: 0;
-                    }
-                    i {
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                        font-size: 20px;
-                        cursor: pointer;
-                        font-weight: 300;
-                    }
-                }
-                p {
-                    color: #575757;
-                    font-weight: 300;
-                    font-size: 15px;
-                    line-height: 24px;
-                }
-            }
             .contact {
                 .contact_info {
                     span {
                         display: block;
                         color: #575757;
-                        font-size: 15px;
-                        line-height: 24px;
                         font-weight: 300;
+                        margin-bottom: 20px;
+                        .fa-whatsapp {
+                            margin-left: 10px;
+                            color: #41B351;
+                            font-size: 20px;
+                            cursor: pointer;
+                            animation: rotate 3s;
+                        }
+                        @keyframes rotate {
+                            from {
+                                transform: rotate(0deg);
+                            }
+                            to {
+                                transform: rotate(360deg);
+                            }
+                        }
                     }
                 }
             }
             .certificate {
                 .certificate_photo {
-                    .img {
-                        height: 150px;
-                        background-color: #585757;
+                    img {
+                        width: 100%;
+                        height: auto;
                     }
                 }
             }
@@ -191,6 +187,15 @@
 
 @media (max-width: 768px) {
     .announce_detail {
-        padding: 50px 56px;
+        padding: 50px $containerDistance-sm;
+        .announcement_info {
+            .video_row {
+                .video {
+                    iframe {
+                        height: 200px;
+                    }
+                }
+            }
+        }
     }
 }

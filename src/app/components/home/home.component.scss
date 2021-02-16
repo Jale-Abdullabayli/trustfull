@@ -71,17 +71,14 @@
         }
     }
     .announcement_title {
-        font-size: 40px;
-        line-height: 50px;
-        font-weight: 700;
+        @include header;
         text-align: center;
         padding: 85px 0;
     }
     .client_opinion {
         padding: 70px $containerDistance;
         .client_opinion_title {
-            font-size: 30px;
-            font-weight: 500;
+            @include header;
             display: block;
             text-align: center;
             margin-bottom: 50px;
@@ -165,6 +162,12 @@
     .home {
         .slogan {
             padding: 100px $containerDistance-sm;
+            &_title {
+                h1 {
+                    font-size: 28px;
+                    line-height: 36px;
+                }
+            }
         }
         .banner {
             height: 704px;
@@ -181,10 +184,6 @@
                     }
                 }
             }
-        }
-        .announcement_title {
-            font-size: 28px;
-            line-height: 36px;
         }
         .client_opinion {
             padding: 48px $containerDistance-sm;

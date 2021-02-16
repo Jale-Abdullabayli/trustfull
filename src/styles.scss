@@ -52,6 +52,16 @@ span {
     }
 }
 
+@mixin header {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+    @media (max-width: 768px) {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
 @mixin form-field {
     border: none;
     margin-bottom: 16px;
@@ -245,10 +255,11 @@ span {
 @mixin card {
     .card {
         &:hover {
-            border-color: $primaryColor;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         .card-img-top {
             height: 150px;
+            width: 100%;
         }
         .card-body {
             padding: 10px;
@@ -297,13 +308,6 @@ span {
             }
         }
     }
-    @media (min-width: 768px) and (max-width: 1200px) {
-        .card {
-            .card-img-top {
-                height: 200px;
-            }
-        }
-    }
 }
 
 html,
@@ -315,4 +319,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    * {
+        max-width: 100vw;
+    }
 }

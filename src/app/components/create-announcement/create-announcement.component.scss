@@ -6,8 +6,7 @@
     }
     .create_announcement_title {
         span {
-            font-size: 25px;
-            font-weight: 500;
+            @include header;
             display: block;
             text-align: center;
             margin: 50px;

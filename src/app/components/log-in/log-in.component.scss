@@ -5,9 +5,7 @@
         @include linkSteps;
     }
     .title {
-        font-size: 28px;
-        line-height: 36px;
-        font-weight: 700;
+        @include header;
         display: block;
         text-align: center;
     }
