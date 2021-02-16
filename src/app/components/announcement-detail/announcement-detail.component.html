@@ -124,7 +124,7 @@
                             <span class="price" *ngIf="similarAnnouncement.price==0">Free</span>
                             <span class="owner"> by <a>{{owners[similarAnnouncement.ownerId-1].name}} {{owners[similarAnnouncement.ownerId-1].surname}}</a></span>
                             <i *ngFor="let item of [0,1,2,3,4]" class="fa fa-star" aria-hidden="true"></i>
-                            <a class="detail" [routerLink]="[ 'announcement-detail',announcement.id]">See detail
+                            <a class="detail" [routerLink]="['/announcement-detail',similarAnnouncement.id]">Detail
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </p>
