@@ -5,95 +5,101 @@
     </ul>
 
     <div class="create_announcement_title"> <span>Create new announcement</span></div>
-    <div class="row form_row">
-        <div class="col-md-6">
-            <div class="form-field">
-                <select (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged" name="" id="">
-                    <option value="" selected>Select type of business activity</option>
-                </select>
-            </div>
-            <div class="form-field">
-                <input type="text" placeholder=" ">
-                <label for="">Title</label>
-            </div>
-            <div class="form-field">
-                <textarea name="" id="" cols="30" rows="10" placeholder=" "></textarea>
-                <label for="">Description</label>
-            </div>
-            <div class="form-field">
-                <textarea name="" id="" cols="30" rows="10" placeholder=" "></textarea>
-                <label for="">Requirements</label>
-            </div>
-            <div class="form-field">
-                <select #serviceType [class.selected]="serviceTypeChanged" (change)="serviceTypeChanged=true" name="" id="">
-                    <option disabled value="" selected>Choose the type of service</option>
-                    <option value="Volunteering">Volunteering</option>
-                    <option value="Business">Business</option>
-                </select>
-            </div>
-            <div [class.d-none]='serviceType.value!="Business"' class="form-field price">
-                <input type="number" placeholder=" ">
-                <label for="">Price</label>
-                <select (change)="currencyChanged=true" [class.selected]="currencyChanged" name="" id="">
-                    <option value="" selected>Currency</option>
-                    <option value="">AZN</option>
-                    <option value="">DOLLAR</option>
-                </select>
-            </div>
-
-
-        </div>
-
-        <div class="col-md-6">
-            <div class="location">
-                <span class="location_text">Location</span>
+    <form [formGroup]='announcementForm' (ngSubmit)="onSubmit()">
+        <div class="row form_row">
+            <div class="col-md-6">
                 <div class="form-field">
-                    <mat-radio-group (change)="changeLocation($event)" aria-label="Select an option">
-                        <mat-radio-button value="online">Online</mat-radio-button>
-                        <mat-radio-button value="offline">Offline</mat-radio-button>
-                    </mat-radio-group>
-                </div>
-            </div>
-
-            <div [class.d-none]="!location" class="choose_location">
-                <div class="form-field">
-                    <select [class.selected]="serviceTypeChanged" (change)="serviceTypeChanged=true" name="" id="">
-                        <option disabled value="" selected>Choose the region</option>
+                    <select [class.invalid]="BusinessActivity.invalid && BusinessActivity.touched" formControlName='businessActivity' name="businessActivity" (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged">
+                        <option value="" selected>Select type of business activity</option>
+                        <option value="Artist">Artist</option>
+                        <option value="Programmer">Programmer</option>
                     </select>
                 </div>
                 <div class="form-field">
-                    <input type="text" name="" id="" placeholder=" ">
-                    <label for="">Additional Location Info</label>
+                    <input [class.invalid]="Title.invalid && Title.touched" formControlName='title' name="title" type="text" placeholder=" ">
+                    <label for="">Title</label>
+                </div>
+                <div class="form-field">
+                    <textarea [class.invalid]="Description.invalid && Description.touched" formControlName='description' name="description" cols="30" rows="10" placeholder=" "></textarea>
+                    <label for="">Description</label>
+                </div>
+                <div class="form-field">
+                    <textarea [class.invalid]="Requirements.invalid && Requirements.touched" formControlName='requirements' name="requirements" cols="30" rows="10" placeholder=" "></textarea>
+                    <label for="">Requirements</label>
+                </div>
+                <div class="form-field">
+                    <select [class.invalid]="ServiceType.invalid && ServiceType.touched" formControlName='serviceType' name="serviceType" #serviceType [class.selected]="serviceTypeChanged" (change)="changeServiceType($event.target.value)">
+                        <option disabled value="" selected>Choose the type of service</option>
+                        <option value="Volunteering">Volunteering</option>
+                        <option value="Business">Business</option>
+                    </select>
+                </div>
+                <div [class.d-none]='serviceType.value!="Business"' class="form-field price">
+                    <input [class.invalid]="Price.invalid && Price.touched" formControlName='price' name="price" type="number" placeholder=" ">
+                    <label for="">Price</label>
+                    <select [class.invalid]="Currency.invalid && Currency.touched" formControlName='currency' name="currency" (change)="currencyChanged=true" [class.selected]="currencyChanged">
+                        <option value="" selected>Currency</option>
+                        <option value="Azn">AZN</option>
+                        <option value="Dollar">DOLLAR</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="file form-field">
-                <input type="file" #fileUpload>
-                <div class="upload_file">
-                    <span>No file chosen</span>
-                    <button (click)="fileUpload.click()" type="button" class="btn">Upload Service Photo
+            <div class="col-md-6">
+                <div class="form-field">
+                    <select [class.invalid]="Location.invalid && Location.touched" formControlName='location' name="location" #location [class.selected]="locationChanged" (change)="changeLocation($event.target.value)">
+                        <option disabled value="" selected>Location</option>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                    </select>
+                </div>
+
+                <div [class.d-none]='location.value!="Offline"' class="choose_location">
+                    <div class="form-field">
+                        <select [class.invalid]="Region.invalid && Region.touched" formControlName='region' name="region" [class.selected]="regionChanged" (change)="regionChanged=true">
+                        <option disabled value="" selected>Choose the region</option>
+                        <option value="Baku">Baku</option>
+                        <option value="Quba">Quba</option>
+                    </select>
+                    </div>
+                    <div class="form-field">
+                        <input [class.invalid]="AdditionalLocationInfo.invalid && AdditionalLocationInfo.touched" formControlName='additionalLocationInfo' name="additionalLocationInfo" type="text" placeholder=" ">
+                        <label for="">Additional Location Info</label>
+                    </div>
+                </div>
+
+                <div class="file form-field">
+                    <input accept="image/*" formControlName='servicePhoto' (change)="servicePhotoUpload($event)" type="file" #fileUpload>
+                    <div [class.invalid]="ServicePhoto.invalid && ServicePhoto.touched" class="upload_file">
+                        <span>{{ServicePhoto.value}}</span>
+                        <button (click)="fileUpload.click()" type="button" class="btn">Upload Service Photo
                         <i class="fa fa-upload" aria-hidden="true"></i>
                     </button>
+                    </div>
                 </div>
-            </div>
-            <div class="form-field">
-                <div>
-                    <input type="text" placeholder=" ">
-                    <label for="">Service iframe link</label>
+                <div class="form-field" formArrayName="introductionLinks" *ngFor="let item of IntroductionLinks['controls']; index as i">
+                    <div [formControlName]="i">
+                        <input type="text" placeholder=" ">
+                        <label for="">Service introduction link</label>
+                    </div>
                 </div>
-                <span class="add_file_text">+ Add other videos</span>
-            </div>
-            <mat-form-field id="date_range">
-                <mat-label>Enter announcement date range</mat-label>
-                <mat-date-range-input [rangePicker]="picker">
-                    <input matStartDate placeholder="Start date">
-                    <input matEndDate placeholder="End date">
-                </mat-date-range-input>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-date-range-picker #picker></mat-date-range-picker>
-            </mat-form-field>
+                <span (click)="addIntroductionLink()" class="add_file_text">+ Add other introduction video link</span>
 
-            <button class="btn" type="submit">Create</button>
+                <mat-form-field id="date_range">
+                    <mat-label>Enter announcement date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date">
+                        <input matEndDate placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+
+                <button class="btn" type="submit">Create</button>
+            </div>
         </div>
-    </div>
+    </form>
+
+
+
 </div>

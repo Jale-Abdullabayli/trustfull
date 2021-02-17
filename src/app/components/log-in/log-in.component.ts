@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-log-in',
@@ -6,12 +7,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
- value:string="";
- passwordVisibility:boolean=false;
+  value: string = "";
+  passwordVisibility: boolean = false;
+  logInForm: FormGroup;
+  logined:boolean=false;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.logInForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    })
+  }
+  get Email(){
+    return this.logInForm.get('email');
+  }
+  get Password(){
+    return this.logInForm.get('password');
   }
 
+  markAsTouched(form: FormGroup | FormArray) {
+    for (let control in form.controls) {
+      if (form.controls[control] instanceof FormControl) {
+        form.controls[control].markAsTouched();
+      }
+      else {
+        this.markAsTouched(form.controls[control]);
+      }
+    }
+  }
+  
+  onSubmit() {
+    if (this.logInForm.valid) {
+      this.logined=true;
+    }
+    else {
+      this.markAsTouched(this.logInForm);
+    }
+  }
 }

@@ -6,35 +6,38 @@
     </ul>
     <div class="row register_row">
         <div class="col-md-6 order-md-1 order-2">
-            <form action="">
+            <form [formGroup]='personalForm' (ngSubmit)="onSubmit()">
                 <div class="form-field">
-                    <textarea name="" id="" cols="30" rows="10" placeholder=" "></textarea>
+                    <textarea [class.invalid]="Biography.invalid && Biography.touched" formControlName='biography' name="biography" id="" cols="30" rows="10" placeholder=" "></textarea>
                     <label for="">Biography</label>
                 </div>
                 <div class="form-field">
-                    <select (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged" name="" id="">
-                        <option value="" selected>Business activity</option>
+                    <select [class.invalid]="BusinessActivity.invalid && BusinessActivity.touched" formControlName='businessActivity' name="businessActivity" (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged" id="">
+                        <option disabled value="" selected>Business activity</option>
+                        <option value="Artist">Artist</option>
+                        <option value="Programmer">Programmer</option>
                     </select>
                 </div>
                 <div class="form-field">
-                    <input type="email" placeholder=" ">
+                    <input [class.invalid]="BusinessEmail.invalid && BusinessEmail.touched" formControlName='businessEmail' name="businessEmail" type="email" placeholder=" ">
                     <label for="">Business mail address</label>
                 </div>
                 <div class="form-field">
-                    <input type="tel" placeholder=" ">
+                    <input [class.invalid]="ContactNumber.invalid && ContactNumber.touched" formControlName='contactNumber' name="contactNumber" type="number" placeholder=" ">
                     <label for="">Contact number</label>
                 </div>
-                <div class="file  form-field">
-                    <input type="file" #fileUpload>
-                    <div class="upload_file">
-                        <span>Certificates</span>
+                <div class="file form-field" formArrayName="documents" *ngFor="let item of Documents['controls']; index as i">
+                    <input (change)="uploadFile($event,i)" type="file" #fileUpload>
+                    <div class="upload_file" [formControlName]="i">
+                        <span>{{documentsName[i]}}</span>
                         <button (click)="fileUpload.click()" type="button" class="btn">Upload Document
                             <i class="fa fa-upload" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <span class="add_file_text">+ Add other document</span>
-
                 </div>
+
+                <span (click)="addDocument()" class="add_file_text">+ Add other document</span>
+
                 <button type="submit" class="btn">Submit</button>
             </form>
         </div>

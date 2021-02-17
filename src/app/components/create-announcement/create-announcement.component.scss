@@ -23,19 +23,6 @@
                     height: 111px;
                 }
             }
-            .location {
-                .location_text {
-                    font-weight: 500;
-                    display: block;
-                    margin-bottom: 10px;
-                }
-                .form-field {
-                    display: inline-block;
-                    mat-radio-button:last-child {
-                        margin-left: 15px;
-                    }
-                }
-            }
             .choose_location {
                 .form-field {
                     @include form-field;
@@ -63,6 +50,7 @@
                 display: block;
                 width: 100%;
                 margin-bottom: 22px;
+                margin-top: 10px;
                 background-color: #fff;
                 border: 2px solid lightgray;
                 outline: none;

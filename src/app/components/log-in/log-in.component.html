@@ -7,13 +7,13 @@
     <div class="row">
         <div class="col-md-6">
             <span>Hello, enter your username and password and enter Trustfull</span>
-            <form action="">
+            <form [formGroup]='logInForm' (ngSubmit)="onSubmit()">
                 <div class="form-field">
-                    <input type="text" placeholder=" ">
+                    <input [class.invalid]="Email.invalid && Email.touched" formControlName='email' name="email" type="text" placeholder=" ">
                     <label for="">Email or number</label>
                 </div>
                 <div class="form-field password">
-                    <input [type]="!passwordVisibility ? 'password' : 'text'" placeholder=" ">
+                    <input [class.invalid]="Password.invalid && Password.touched" formControlName='password' name="password" [type]="!passwordVisibility ? 'password' : 'text'" placeholder=" ">
                     <label for="">Password</label>
                     <i (click)="passwordVisibility=!passwordVisibility" [class.passwordVisible]="passwordVisibility" class="fa fa-eye" aria-hidden="true"></i>
                 </div>
@@ -30,5 +30,9 @@
             <span class="register_text">
                 If you don't have account. Please register from <a routerLink='/registration'>here</a> first.</span>
         </div>
+    </div>
+
+    <div [class.d-none]="!logined" class="alert">
+        Successfully logined
     </div>
 </div>

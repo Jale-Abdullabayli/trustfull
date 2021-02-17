@@ -27,6 +27,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -39,6 +40,7 @@ const modules =[
   MatIconModule,
   MatInputModule,
   FormsModule,
+  ReactiveFormsModule,
   MatRadioModule,
   MatExpansionModule,
   MatDatepickerModule,

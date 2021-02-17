@@ -68,7 +68,6 @@ span {
     position: relative;
     &:focus-within {
         label {
-            color: $primaryColor;
             top: 6px;
             transform: translateY(0);
             font-size: 11px;
@@ -95,6 +94,10 @@ span {
         &:focus {
             border: 2px solid $primaryColor;
         }
+        &.invalid {
+            border: 2px solid #CC112B;
+            background-color: #FFE8EB;
+        }
     }
     select {
         border-radius: 5px;
@@ -103,6 +106,10 @@ span {
         height: 48px;
         border: 2px solid lightgray;
         color: gray;
+        &.invalid {
+            border: 2px solid #CC112B;
+            background-color: #FFE8EB;
+        }
         &.selected {
             color: black;
         }
@@ -167,12 +174,15 @@ span {
         outline: none;
         height: 48px;
         border: 2px solid lightgray;
+        &.invalid {
+            border: 2px solid #CC112B;
+            background-color: #FFE8EB;
+        }
         span {
             position: absolute;
             left: 0;
             top: 0;
             height: 100%;
-            color: gray;
             padding: 14px 0;
             padding-left: 16px;
         }
@@ -199,6 +209,7 @@ span {
 .add_file_text {
     color: $primaryColor;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 @mixin search {
