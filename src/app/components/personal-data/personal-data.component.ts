@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal-data',
@@ -7,21 +8,35 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./personal-data.component.scss']
 })
 export class PersonalDataComponent implements OnInit {
+  phoneMask=['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   businessActivityChanged: boolean = false;
   userProfilPhoto: string;
   personalForm: FormGroup;
-  documents: FormArray;
   documentsName:string[]=new Array;
-  constructor(private formBuilder: FormBuilder) { }
+  total:string;
+  currentPage: number = 1;
+  constructor(private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
     this.personalForm = this.formBuilder.group({
       biography: ['', [Validators.required,Validators.minLength(5)]],
       businessActivity: ['', Validators.required],
       businessEmail: ['', [Validators.required, Validators.email]],
-      contactNumber: ['', [Validators.required,Validators.pattern("^[0-9+]*$")]],
-      documents: this.formBuilder.array([
-        this.createDocument()
+      callNumber: ['', [Validators.required]],
+      whatsappNumber: [''],
+      telegramNumber: [''],
+      identityCard:[''],
+      certificates: this.formBuilder.array([
+        this.formBuilder.control('')
+      ]),
+      diplomas: this.formBuilder.array([
+        this.formBuilder.control('')
       ])
     })
   }
@@ -35,26 +50,36 @@ export class PersonalDataComponent implements OnInit {
   get BusinessEmail() {
     return this.personalForm.get('businessEmail');
   }
-  get ContactNumber() {
-    return this.personalForm.get('contactNumber');
+  get CallNumber() {
+    return this.personalForm.get('callNumber');
   }
-  get Documents() {
-    return this.personalForm.get('documents');
+  get WhatsappNumber() {
+    return this.personalForm.get('whatsappNumber');
+  }
+  get TelegramNumber() {
+      return this.personalForm.get('telegramNumber');
+  }
+  get Certificates() {
+    return this.personalForm.get('certificates') as FormArray;
   }
 
+  get Diplomas() {
+    return this.personalForm.get('diplomas') as FormArray;
+  }
   uploadFile(event,i:number){
     if(event.target.files.length > 0) 
   {
     this.documentsName[i]=event.target.files[0].name;
   }
   }
-  createDocument(): FormControl {
-    return this.formBuilder.control({})
+  
+
+  addCertificate(): void {   
+    this.Certificates.push(this.formBuilder.control(''));
   }
 
-  addDocument(): void {
-    this.documents = this.Documents as FormArray;
-    this.documents.push(this.createDocument());
+  addDiploma(): void {
+    this.Diplomas.push(this.formBuilder.control(''));
   }
 
   markAsTouched(form: FormGroup | FormArray) {
@@ -95,5 +120,14 @@ export class PersonalDataComponent implements OnInit {
 
     } else {
     }
+  }
+  removeCertificate(index:number){
+    this.Certificates.removeAt(index);
+  }
+  removeDiploma(index:number){
+    this.Diplomas.removeAt(index);
+  }
+  pageChanged(event){
+    this.currentPage=event;
   }
 }

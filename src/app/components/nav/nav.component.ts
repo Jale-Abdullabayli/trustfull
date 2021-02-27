@@ -10,15 +10,12 @@ export class NavComponent implements OnInit {
   fav: string = "favorite_border";
   user: string = "person_outline";
   language = 'Az';
-  languagePanelOpenState: boolean = false;
   menuOpenState: boolean = false;
+  languageOpenState: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  scrollAnnouncements() {
-    document.getElementById("announcement").scrollIntoView({ behavior: "smooth" });
   }
 
   scrollContact() {

@@ -10,6 +10,8 @@
                 <div class="form-field">
                     <textarea [class.invalid]="Biography.invalid && Biography.touched" formControlName='biography' name="biography" id="" cols="30" rows="10" placeholder=" "></textarea>
                     <label for="">Biography</label>
+                    <small *ngIf="Biography.errors?.required && Biography.touched">Biography is required</small>
+                    <small *ngIf="Biography.errors?.minlength && Biography.touched">Biography must be at least 5 character</small>
                 </div>
                 <div class="form-field">
                     <select [class.invalid]="BusinessActivity.invalid && BusinessActivity.touched" formControlName='businessActivity' name="businessActivity" (change)="businessActivityChanged=true" [class.selected]="businessActivityChanged" id="">
@@ -17,33 +19,65 @@
                         <option value="Artist">Artist</option>
                         <option value="Programmer">Programmer</option>
                     </select>
+                    <small *ngIf="BusinessActivity.errors?.required && BusinessActivity.touched">Business activity is required</small>
                 </div>
                 <div class="form-field">
                     <input [class.invalid]="BusinessEmail.invalid && BusinessEmail.touched" formControlName='businessEmail' name="businessEmail" type="email" placeholder=" ">
                     <label for="">Business mail address</label>
+                    <small *ngIf="BusinessEmail.errors?.required && BusinessEmail.touched">Business email is required</small>
+                    <small *ngIf="BusinessEmail.errors?.email && BusinessEmail.touched">Invalid email</small>
                 </div>
                 <div class="form-field">
-                    <input [class.invalid]="ContactNumber.invalid && ContactNumber.touched" formControlName='contactNumber' name="contactNumber" type="number" placeholder=" ">
-                    <label for="">Contact number</label>
+                    <input [textMask]="{mask: phoneMask}" [class.invalid]="CallNumber.invalid && CallNumber.touched" formControlName='callNumber' name="callNumber" type="text" placeholder=" ">
+                    <label for="">Call number</label>
+                    <small *ngIf="CallNumber.errors?.required && CallNumber.touched">Call number is required</small>
                 </div>
-                <div class="file form-field" formArrayName="documents" *ngFor="let item of Documents['controls']; index as i">
-                    <input (change)="uploadFile($event,i)" type="file" #fileUpload>
-                    <div class="upload_file" [formControlName]="i">
-                        <span>{{documentsName[i]}}</span>
-                        <button (click)="fileUpload.click()" type="button" class="btn">Upload Document
-                            <i class="fa fa-upload" aria-hidden="true"></i>
+                <div class="form-field">
+                    <input [textMask]="{mask: phoneMask}" formControlName='whatsappNumber' name="whatsappNumber" type="text" placeholder=" ">
+                    <label for="">Whatsapp number</label>
+                </div>
+                <div class="form-field">
+                    <input [textMask]="{mask: phoneMask}" formControlName='telegramNumber' name="telegramNumber" type="text" placeholder=" ">
+                    <label for="">Telegram number</label>
+                </div>
+                <div class="file form-field">
+                    <input accept="image/*" formControlName='identityCard' type="file" #identityCardUpload>
+                    <div class="upload_file">
+                        <span>Identity Card</span>
+                        <button type="button" class="btn">
+                            <i (click)="identityCardUpload.click()" class="fa fa-upload" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
-
-                <span (click)="addDocument()" class="add_file_text">+ Add other document</span>
+                <div class="file form-field add" formArrayName="certificates" *ngFor="let item of Certificates['controls']; index as i">
+                    <input [formControlName]="i" accept="application/msword, application/pdf, image/*" (change)="uploadFile($event,i)" type="file" #certificateUpload>
+                    <div class="upload_file">
+                        <span>{{i+1}}. Certificate</span>
+                        <button type="button" class="btn">
+                            <i (click)="certificateUpload.click()" class="fa fa-upload" aria-hidden="true"></i>
+                          </button>
+                    </div>
+                    <i *ngIf="i==0" (click)="addCertificate()" class="fa fa-plus" aria-hidden="true"></i>
+                    <i *ngIf="i!=0" (click)="removeCertificate(i)" class="fa fa-trash" aria-hidden="true"></i>
+                </div>
+                <div class="file form-field add" formArrayName="diplomas" *ngFor="let item of Diplomas['controls']; index as i">
+                    <input [formControlName]="i" accept="application/msword, application/pdf, image/*" (change)="uploadFile($event,i)" type="file" #diplomaUpload>
+                    <div class="upload_file">
+                        <span>{{i+1}}. Diploma </span>
+                        <button type="button" class="btn">
+                            <i (click)="diplomaUpload.click()" class="fa fa-upload" aria-hidden="true"></i>
+                            </button>
+                    </div>
+                    <i *ngIf="i==0" (click)="addDiploma()" class="fa fa-plus" aria-hidden="true"></i>
+                    <i *ngIf="i!=0" (click)="removeDiploma(i)" class="fa fa-trash" aria-hidden="true"></i>
+                </div>
 
                 <button type="submit" class="btn">Submit</button>
             </form>
         </div>
         <div class="col-md-6 order-md-2 order-1 profil">
             <div class="profilPhoto">
-                <img [src]="userProfilPhoto" onerror='this.src="../../../assets/images/default-user-image.png"' alt="">
+                <img [src]="userProfilPhoto" onerror="this.src='../../../assets/images/default-user-image.png'" alt="">
                 <i (click)="file.click()" class="fa fa-camera" aria-hidden="true"></i>
                 <input type="file" accept="image/*" (change)="setProfilPhoto($event)" #file class="d-none">
             </div>
@@ -55,27 +89,40 @@
 
 
 <div class="my_announcements">
-    <div class="title">
-        <span>My announcements</span>
-        <div class="input-group search">
-            <input placeholder="Search" type="text" class="form-control">
-            <i class="fa fa-search" aria-hidden="true"></i>
+    <div class="title row">
+        <div class="col-md-8">
+            <span>My announcements</span>
+        </div>
+        <div class="col-md-4">
+            <div class="search">
+                <input placeholder="Search" type="text" class="form-control">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-2 date">
-            <span class="day_month">18/06 <sup>/2020</sup></span>
-        </div>
-        <div class="col-md-6 name">
-            <span class="announcement_name">
-                Online chess educational courses
+    <div *ngFor="let announcement of [0,1,2,3] | paginate: { id: 'page',
+    itemsPerPage: 3,
+    currentPage: currentPage,
+    totalItems: total}">
+        <div class="row announcement_row">
+            <div class="col-md-2 date">
+                <span class="day_month">18/06/2020</span>
+            </div>
+            <div class="col-md-6 name">
+                <span class="announcement_name">
+                Chess course
             </span>
-            <span>As you already know, this April, Grupo eventoplus turns 20 years old.</span>
+                <span class="description">As you already know, this April, Grupo eventoplus turns 20 years old.</span>
+            </div>
+            <div class="col-md-4 edit">
+                <button class="btn">Edit</button>
+                <button class="btn" (click)="deleteAnnouncement()">Delete</button>
+            </div>
         </div>
-        <div class="col-md-4 edit">
-            <button class="btn">Edit</button>
-            <button class="btn" (click)="deleteAnnouncement()">Delete</button>
-        </div>
+    </div>
+    <div class="pagination_controls">
+        <pagination-controls maxSize="5" directionLinks="true" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page" id="page"
+            (pageChange)="pageChanged($event)" (pageBoundsCorrection)="pageChanged($event)"></pagination-controls>
     </div>
 </div>

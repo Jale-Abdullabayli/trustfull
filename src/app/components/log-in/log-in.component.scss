@@ -1,6 +1,7 @@
 @import '../../../styles.scss';
 .log-in {
     padding: 64px $containerDistance;
+    border-bottom: 2px solid #F7F7F7;
     .link_steps {
         @include linkSteps;
     }
@@ -27,8 +28,8 @@
                     margin-top: 20px;
                     .btn {
                         @include button;
-                        width: 70%;
                         height: 100%;
+                        width: calc(100% - 120px);
                     }
                     .icon {
                         cursor: pointer;
@@ -49,6 +50,7 @@
                     }
                 }
                 .forgot_password {
+                    cursor: pointer;
                     font-size: 15px;
                     line-height: 24px;
                     font-weight: 500;
@@ -59,16 +61,15 @@
             }
             &:last-child {
                 .register_text {
-                    font-weight: 700;
+                    font-weight: 500;
                     font-size: 15px;
                     line-height: 24px;
                     color: #000000;
                     display: block;
                     a {
-                        text-decoration: underline;
-                        color: black;
+                        color: $primaryColor;
                         &:hover {
-                            color: $primaryColor;
+                            text-decoration: underline;
                         }
                     }
                 }
@@ -83,13 +84,14 @@
         }
     }
     .alert {
-        background-color: #00AA79;
-        color: white;
+        background-color: #D5FDF1;
         position: absolute;
         right: 0;
         bottom: 0;
         transform: translateX(100%);
         height: 50px;
+        font-size: 15px;
+        line-height: 24px;
         padding: 15px 25px;
         font-weight: 500;
         font-size: 16px;

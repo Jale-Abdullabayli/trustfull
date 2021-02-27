@@ -1,9 +1,9 @@
             @import '../../../styles.scss';
             footer {
-                border-top: 2px solid lightgray;
                 >.create_new_announcement {
-                    padding: 72px 0;
+                    padding: 90px 0;
                     text-align: center;
+                    background-color: #EAFBFF;
                     span {
                         font-size: 22px;
                         line-height: 32px;
@@ -15,7 +15,7 @@
                     }
                 }
                 .footer_row {
-                    padding: 64px $containerDistance;
+                    padding: 72px $containerDistance;
                     div[class*="col"] {
                         height: fit-content;
                         >div {
@@ -33,8 +33,7 @@
                             p {
                                 font-weight: 300;
                                 color: #6E6E6E;
-                                font-size: 12px;
-                                line-height: 18px;
+                                font-size: 14px;
                             }
                         }
                         .tags {
@@ -42,9 +41,8 @@
                                 background-color: #E5F1FF;
                                 color: $primaryColor;
                                 display: inline-block;
-                                font-size: 10px;
-                                line-height: 12px;
-                                padding: 4px 7px;
+                                font-size: 14px;
+                                padding: 5px 8px;
                                 margin-right: 10px;
                                 font-weight: 500;
                                 border-radius: 5px;
@@ -61,7 +59,7 @@
                                     line-height: 20px;
                                     i {
                                         color: #969696;
-                                        margin-right: 15px;
+                                        margin-right: 10px;
                                         margin-bottom: 10px;
                                         width: 18px;
                                         height: 18px;
@@ -89,7 +87,7 @@
                         padding: 56px $containerDistance-md;
                     }
                     .footer_row {
-                        padding: 64px $containerDistance-md;
+                        padding: 56px $containerDistance-md;
                     }
                 }
             }
@@ -100,7 +98,7 @@
                         padding: 46px $containerDistance-sm;
                     }
                     .footer_row {
-                        padding: 64px $containerDistance-sm;
+                        padding: 48px $containerDistance-sm;
                         div[class*="col"] {
                             text-align: center;
                             margin-bottom: 20px;

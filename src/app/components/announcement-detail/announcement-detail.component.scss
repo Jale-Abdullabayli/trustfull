@@ -48,24 +48,12 @@
                     margin-left: 20px;
                     border-radius: 5px;
                     height: 32px;
-                }
-            }
-        }
-        .video_row {
-            .video {
-                background-color: #585757;
-                position: relative;
-                iframe {
-                    height: 120px;
-                    width: 100%;
-                }
-                i {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    color: white;
-                    font-size: 40px;
+                    &.price {
+                        background-color: #fff;
+                        color: #000;
+                        font-weight: bold;
+                        padding: 5px 0;
+                    }
                 }
             }
         }
@@ -75,7 +63,8 @@
     .videos,
     .biography,
     .contact,
-    .certificate {
+    .certificate,
+    .diploma {
         font-size: 15px;
         line-height: 24px;
         margin-bottom: 20px;
@@ -106,17 +95,19 @@
         .owner_title {
             position: relative;
             margin-bottom: 70px;
+            height: 96px;
             img {
                 width: 96px;
                 height: 96px;
                 border-radius: 50%;
                 float: left;
                 margin-right: 20px;
-                image-rendering: pixelated;
+                object-fit: cover;
             }
             .owner_name {
                 position: relative;
-                transform: translateY(50%);
+                top: 50%;
+                transform: translateY(-50%);
                 b {
                     font-size: 20;
                     line-height: 26px;
@@ -132,31 +123,38 @@
         .owner_info {
             .contact {
                 .contact_info {
-                    span {
-                        display: block;
-                        color: #575757;
-                        font-weight: 300;
+                    >div {
+                        display: inline-block;
                         margin-bottom: 20px;
-                        .fa-whatsapp {
+                        margin-right: 30px;
+                        span {
+                            color: #575757;
+                            font-weight: 300;
                             margin-left: 10px;
-                            color: #41B351;
-                            font-size: 20px;
-                            cursor: pointer;
-                            animation: rotate 3s;
                         }
-                        @keyframes rotate {
-                            from {
-                                transform: rotate(0deg);
+                        i {
+                            font-size: 18px;
+                            cursor: pointer;
+                            &.fa-whatsapp {
+                                color: #41B351;
                             }
-                            to {
-                                transform: rotate(360deg);
+                            &.fa-envelope-o {
+                                color: red;
+                            }
+                            &.fa-map-marker {
+                                color: blue;
+                            }
+                            &:hover {
+                                font-size: 20px;
                             }
                         }
                     }
                 }
             }
-            .certificate {
-                .certificate_photo {
+            .certificate,
+            .diploma {
+                .certificate_photo,
+                .diploma_photo {
                     img {
                         width: 100%;
                         height: auto;
@@ -188,11 +186,22 @@
 @media (max-width: 768px) {
     .announce_detail {
         padding: 50px $containerDistance-sm;
-        .announcement_info {
-            .video_row {
-                .video {
-                    iframe {
-                        height: 200px;
+        .owner {
+            .owner_title {
+                height: 60px;
+                img {
+                    margin-right: 10px;
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+            .owner_info {
+                .contact {
+                    .contact_info {
+                        >div {
+                            display: block;
+                            margin-right: 0;
+                        }
                     }
                 }
             }

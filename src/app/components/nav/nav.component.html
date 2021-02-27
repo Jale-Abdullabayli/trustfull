@@ -4,36 +4,31 @@
         <span class="brand" routerLink='/'>Trustfull</span>
         <div class="menu">
             <ul class="menu_list">
-                <li (click)="scrollAnnouncements()">Announcements</li>
+                <li routerLink="/announcements" routerLinkActive="active">Announcements</li>
                 <li (click)="scrollContact()">Contact</li>
             </ul>
-            <mat-form-field>
-                <mat-select [(value)]="language">
-                    <mat-option value="Az">Az</mat-option>
-                    <mat-option value="En">En</mat-option>
-                    <mat-option value="Ru">Ru</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <button routerLink='log-in' class="login_button" mat-raised-button>Log-in
+            <div (click)="languageOpenState=!languageOpenState" (mouseenter)="languageOpenState=true" (mouseleave)="languageOpenState=false" class="language">
+                <span>{{language}}</span>
+                <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
+                <div [style.display]="!languageOpenState ? 'none':'block'" class="choose_language">
+                    <span (click)="language='Az'">Az</span>
+                    <span (click)="language='En'">En</span>
+                    <span (click)="language='Ru'">Ru</span>
+                </div>
+            </div>
+
+            <button routerLink="/log-in" class="login_button" mat-raised-button>Log-in
                 <i class="fa fa-user-o" aria-hidden="true"></i></button>
         </div>
-        <div class="expand_menu" [class.d-none]="!menuOpenState">
-            <div>Announcements</div>
-            <div>Contact</div>
-            <div>Favorites</div>
-            <mat-accordion>
-                <mat-expansion-panel (opened)="languagePanelOpenState = true" (closed)="languagePanelOpenState = false">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Select language
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <p>Azerbaijan</p>
-                    <p>English</p>
-                    <p>Russian</p>
-                </mat-expansion-panel>
-            </mat-accordion>
+        <div (click)="menuOpenState=false" class="expand_menu" [class.d-none]="!menuOpenState">
+            <div routerLink="/announcements">Announcements</div>
+            <div (click)="scrollContact()">Contact</div>
+            <div class="language">
+                <span (click)="language='Az'">Azerbaijan</span>
+                <span (click)="language='En'">English</span>
+                <span (click)="language='Ru'">Russian</span>
+            </div>
         </div>
-        <i routerLink='log-in' class="fa fa-user-o" aria-hidden="true"></i>
+        <i routerLink="/log-in" class="fa fa-user-o" aria-hidden="true"></i>
     </div>
 </nav>

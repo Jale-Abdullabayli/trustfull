@@ -10,12 +10,15 @@
             <form [formGroup]='logInForm' (ngSubmit)="onSubmit()">
                 <div class="form-field">
                     <input [class.invalid]="Email.invalid && Email.touched" formControlName='email' name="email" type="text" placeholder=" ">
-                    <label for="">Email or number</label>
+                    <label for="">Email</label>
+                    <small *ngIf="Email.errors?.required && Email.touched">Email is required</small>
+                    <small *ngIf="Email.errors?.email && Email.touched">Invalid email</small>
                 </div>
                 <div class="form-field password">
                     <input [class.invalid]="Password.invalid && Password.touched" formControlName='password' name="password" [type]="!passwordVisibility ? 'password' : 'text'" placeholder=" ">
                     <label for="">Password</label>
                     <i (click)="passwordVisibility=!passwordVisibility" [class.passwordVisible]="passwordVisibility" class="fa fa-eye" aria-hidden="true"></i>
+                    <small *ngIf="Password.errors?.required && Password.touched">Password is required</small>
                 </div>
                 <div class="submit">
                     <button type="submit" class="btn">Log in</button> or
@@ -23,7 +26,7 @@
                     <div class="icon"><i class="fa fa-google" aria-hidden="true"></i></div>
                 </div>
             </form>
-            <a href="" class="forgot_password">Forgot your password?</a>
+            <a routerLink="/forgot-password" class="forgot_password">Forgot your password?</a>
         </div>
         <div class="col-md-6">
             <span>B system is a sketch design system created with the proposal of maximizing the performance in the construction of digital touch points.</span>

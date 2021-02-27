@@ -2,15 +2,14 @@
     <div class="category_list">
         <div class="category">
             <span [class.active]="i==activeCategoryId" (mouseover)="hoverCategory(i)" (mouseleave)="leaveCategory(i)" (click)="changeCategory(i)" *ngFor="let category of categories; index as i">
-                {{category.name | titlecase }}
-            </span>
+            {{category.name | titlecase }}
+        </span>
         </div>
     </div>
     <div class="empty" *ngIf="announcements.length==0">
         <div class="img"></div>
         <span>There is no announcement in this category yet</span>
     </div>
-
     <div *ngIf="announcements.length!=0" class="announcement_list">
         <div class="filter_row">
             <div class="most">
@@ -71,7 +70,10 @@
             </div>
         </div>
         <div class="row announce_row">
-            <div class="col-xl-3 col-lg-4 col-sm-6 d-flex align-items-stretch" *ngFor="let announcement of announcements">
+            <div class="col-xl-3 col-lg-4 col-sm-6 d-flex align-items-stretch" *ngFor="let announcement of announcements | paginate: { id: 'page',
+            itemsPerPage: 8,
+            currentPage: currentPage,
+            totalItems: total}">
                 <div class="card">
                     <div class="card-img-top" [style.backgroundImage]="'url('+ announcement.imgUrl +')'" *ngIf="announcement.imgUrl"></div>
                     <div class="card-img-top" *ngIf="!announcement.imgUrl"></div>
@@ -91,10 +93,9 @@
                 </div>
             </div>
         </div>
-        <div class="see_more">
-            <a [routerLink]="['/announcements',activeCategoryId]"> See more announcements
-                <img src="../../../assets/images/arrow.png" alt="">
-            </a>
+        <div class="pagination_controls">
+            <pagination-controls maxSize="5" directionLinks="true" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page" id="page"
+                (pageChange)="pageChanged($event)" (pageBoundsCorrection)="pageChanged($event)"></pagination-controls>
         </div>
     </div>
 </div>

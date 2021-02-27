@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatRadioChange } from '@angular/material/radio';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-announcement',
@@ -14,16 +15,23 @@ export class CreateAnnouncementComponent implements OnInit {
   locationChanged: boolean = false;
   regionChanged: boolean = false;
   announcementForm: FormGroup;
-  introductionLinkList: FormArray;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+
     this.announcementForm = this.formBuilder.group({
       businessActivity: ['', Validators.required],
       title: ['', [Validators.required, Validators.minLength(5)]],
       description: ['', [Validators.required, Validators.minLength(10)]],
-      requirements: ['', [Validators.required, Validators.minLength(5)]],
+      requirements: [''],
       serviceType: ['', Validators.required],
       price: [''],
       currency: [''],
@@ -32,7 +40,7 @@ export class CreateAnnouncementComponent implements OnInit {
       additionalLocationInfo: [''],
       servicePhoto: ['', Validators.required],
       introductionLinks: this.formBuilder.array([
-        this.createIntroductionLink()
+        this.formBuilder.control('')
       ]),
       dateRange: [''],
     })
@@ -72,15 +80,12 @@ export class CreateAnnouncementComponent implements OnInit {
     return this.announcementForm.get('servicePhoto');
   }
   get IntroductionLinks() {
-    return this.announcementForm.get('introductionLinks');
+    return this.announcementForm.get('introductionLinks') as FormArray;
   }
   get DateRange() {
     return this.announcementForm.get('dateRange');
   }
 
-  createIntroductionLink() {
-    return this.formBuilder.control({})
-  }
 
   servicePhotoUpload(event) {
     if (event.target.files.length > 0) {
@@ -119,8 +124,7 @@ export class CreateAnnouncementComponent implements OnInit {
   }
 
   addIntroductionLink(): void {
-    this.introductionLinkList = this.IntroductionLinks as FormArray;
-    this.introductionLinkList.push(this.createIntroductionLink());
+   this.IntroductionLinks.push(this.formBuilder.control(''));
   }
 
 
@@ -142,6 +146,10 @@ export class CreateAnnouncementComponent implements OnInit {
     else {
       this.markAsTouched(this.announcementForm);
     }
+  }
+
+  removeIntroductionLink(index:number){
+    this.IntroductionLinks.removeAt(index);
   }
 
 }

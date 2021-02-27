@@ -14,17 +14,25 @@
                         <option value="Artist">Artist</option>
                         <option value="Programmer">Programmer</option>
                     </select>
+                    <small *ngIf="BusinessActivity.errors?.required && BusinessActivity.touched">Business activity is
+                        required</small>
+
                 </div>
                 <div class="form-field">
                     <input [class.invalid]="Title.invalid && Title.touched" formControlName='title' name="title" type="text" placeholder=" ">
                     <label for="">Title</label>
+                    <small *ngIf="Title.errors?.required && Title.touched">Title is required</small>
+                    <small *ngIf="Title.errors?.minlength && Title.touched">Title must be at least 5 character</small>
                 </div>
                 <div class="form-field">
                     <textarea [class.invalid]="Description.invalid && Description.touched" formControlName='description' name="description" cols="30" rows="10" placeholder=" "></textarea>
                     <label for="">Description</label>
+                    <small *ngIf="Description.errors?.required && Description.touched">Description is required</small>
+                    <small *ngIf="Description.errors?.minlength && Description.touched">Description must be at least 10
+                        character</small>
                 </div>
                 <div class="form-field">
-                    <textarea [class.invalid]="Requirements.invalid && Requirements.touched" formControlName='requirements' name="requirements" cols="30" rows="10" placeholder=" "></textarea>
+                    <textarea formControlName='requirements' name="requirements" cols="30" rows="10" placeholder=" "></textarea>
                     <label for="">Requirements</label>
                 </div>
                 <div class="form-field">
@@ -33,15 +41,20 @@
                         <option value="Volunteering">Volunteering</option>
                         <option value="Business">Business</option>
                     </select>
+                    <small *ngIf="ServiceType.errors?.required && ServiceType.touched">Service type is required</small>
                 </div>
                 <div [class.d-none]='serviceType.value!="Business"' class="form-field price">
-                    <input [class.invalid]="Price.invalid && Price.touched" formControlName='price' name="price" type="number" placeholder=" ">
+                    <input [class.invalid]="Price.invalid && Price.touched" formControlName='price' name="price" placeholder=" ">
                     <label for="">Price</label>
                     <select [class.invalid]="Currency.invalid && Currency.touched" formControlName='currency' name="currency" (change)="currencyChanged=true" [class.selected]="currencyChanged">
                         <option value="" selected>Currency</option>
                         <option value="Azn">AZN</option>
-                        <option value="Dollar">DOLLAR</option>
+                        <option value="USD">USD</option>
+                        <option value="EURO">EURO</option>
                     </select>
+                    <small *ngIf="Price.errors?.required && Price.touched">Price is required</small>
+                    <small *ngIf="Price.errors?.pattern && Price.touched">Price must be number</small>
+                    <small *ngIf="Currency.errors?.required && Currency.touched">Currency is required</small>
                 </div>
             </div>
 
@@ -52,15 +65,17 @@
                         <option value="Online">Online</option>
                         <option value="Offline">Offline</option>
                     </select>
+                    <small *ngIf="Location.errors?.required && Location.touched">Location is required</small>
                 </div>
 
                 <div [class.d-none]='location.value!="Offline"' class="choose_location">
                     <div class="form-field">
                         <select [class.invalid]="Region.invalid && Region.touched" formControlName='region' name="region" [class.selected]="regionChanged" (change)="regionChanged=true">
-                        <option disabled value="" selected>Choose the region</option>
-                        <option value="Baku">Baku</option>
-                        <option value="Quba">Quba</option>
-                    </select>
+                            <option disabled value="" selected>Choose the region</option>
+                            <option value="Baku">Baku</option>
+                            <option value="Quba">Quba</option>
+                        </select>
+                        <small *ngIf="Region.errors?.required && Region.touched">Region is required</small>
                     </div>
                     <div class="form-field">
                         <input [class.invalid]="AdditionalLocationInfo.invalid && AdditionalLocationInfo.touched" formControlName='additionalLocationInfo' name="additionalLocationInfo" type="text" placeholder=" ">
@@ -71,35 +86,24 @@
                 <div class="file form-field">
                     <input accept="image/*" formControlName='servicePhoto' (change)="servicePhotoUpload($event)" type="file" #fileUpload>
                     <div [class.invalid]="ServicePhoto.invalid && ServicePhoto.touched" class="upload_file">
-                        <span>{{ServicePhoto.value}}</span>
-                        <button (click)="fileUpload.click()" type="button" class="btn">Upload Service Photo
-                        <i class="fa fa-upload" aria-hidden="true"></i>
-                    </button>
+                        <span>Service Photo</span>
+                        <button (click)="fileUpload.click()" type="button" class="btn">
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                        </button>
                     </div>
+                    <small *ngIf="ServicePhoto.errors?.required && ServicePhoto.touched">Service photo is
+                        required</small>
                 </div>
-                <div class="form-field" formArrayName="introductionLinks" *ngFor="let item of IntroductionLinks['controls']; index as i">
-                    <div [formControlName]="i">
-                        <input type="text" placeholder=" ">
+                <div class="file form-field add" formArrayName="introductionLinks" *ngFor="let item of IntroductionLinks['controls']; index as i">
+                    <div class="upload_file iframe">
+                        <input [formControlName]="i" type="text" placeholder=" ">
                         <label for="">Service introduction link</label>
                     </div>
+                    <i *ngIf="i==0" (click)="addIntroductionLink()" class="fa fa-plus" aria-hidden="true"></i>
+                    <i *ngIf="i!=0" (click)="removeIntroductionLink(i)" class="fa fa-trash" aria-hidden="true"></i>
                 </div>
-                <span (click)="addIntroductionLink()" class="add_file_text">+ Add other introduction video link</span>
-
-                <mat-form-field id="date_range">
-                    <mat-label>Enter announcement date range</mat-label>
-                    <mat-date-range-input [rangePicker]="picker">
-                        <input matStartDate placeholder="Start date">
-                        <input matEndDate placeholder="End date">
-                    </mat-date-range-input>
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-date-range-picker #picker></mat-date-range-picker>
-                </mat-form-field>
-
-                <button class="btn" type="submit">Create</button>
+                <button class="btn" type="submit">Create announcement</button>
             </div>
         </div>
     </form>
-
-
-
 </div>

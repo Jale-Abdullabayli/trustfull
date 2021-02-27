@@ -11,10 +11,25 @@
             "id": 3,
             "name": "music"
         },
-
         {
             "id": 4,
             "name": "cooking"
+        },
+        {
+            "id": 5,
+            "name": "art"
+        },
+        {
+            "id": 6,
+            "name": "car"
+        },
+        {
+            "id": 7,
+            "name": "technology"
+        },
+        {
+            "id": 8,
+            "name": "animals"
         }
     ],
     "announcements": [{
@@ -76,13 +91,85 @@
             "imgUrl": "",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
             "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
+        }, {
+            "id": 1,
+            "name": "Chess Course",
+            "ownerId": 1,
+            "price": 0,
+            "categoryId": 2,
+            "imgUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_BA65213_9707769704500326_49933.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "serviceType": 1
         }
     ],
     "owners": [{
             "id": 1,
             "name": "Ayla",
             "surname": "Abdullayeva",
-            "imgUrl": "https://www.cbc.ca/parents/content/imgs/tween-drama.jpg"
+            "imgUrl": "https://surpasssoftware.com/wp-content/uploads/2019/11/avatar-1.jpg"
         },
         {
             "id": 2,

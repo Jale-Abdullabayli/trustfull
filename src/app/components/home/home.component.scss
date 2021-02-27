@@ -1,192 +1,219 @@
-@import '../../../styles.scss';
-.home {
-    .slogan {
-        padding: 100px $containerDistance;
-        >div {
-            padding: 0;
-        }
-        &_title {
-            h1 {
-                font-weight: bold;
-                font-size: 64px;
-                line-height: 76px;
-            }
-        }
-        &_description {
-            color: gray;
-            i {
-                width: 48px;
-                height: 48px;
-                display: block;
-                border-radius: 50%;
-                border: 1px solid gray;
-                text-align: center;
-                line-height: 48px;
-                font-size: 20px;
-                margin-bottom: 16px;
-            }
-        }
-    }
-    .banner {
-        height: 500px;
-        width: 100vw;
-        &_text {
-            padding-left: $containerDistance;
-            position: relative;
-            background-color: $primaryColor;
+    @import '../../../styles.scss';
+    .home {
+        .slogan {
+            padding: 75px $containerDistance;
             >div {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                h2 {
-                    margin-bottom: 40px;
-                    line-height: 36px;
-                    font-size: 28px;
-                    font-family: 'Yusei Magic', sans-serif;
-                    color: #fff;
-                    font-weight: 700;
-                }
-                span {
-                    line-height: 32px;
-                    font-size: 22px;
-                    color: #fff;
-                    font-weight: 300;
-                    display: block;
-                }
-                button {
-                    @include button;
-                    margin-top: 40px;
-                    background-color: #fff;
-                    color: black;
-                }
-            }
-        }
-        &_img {
-            padding: 0;
-            img {
-                background-size: cover;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-    .announcement_title {
-        @include header;
-        text-align: center;
-        padding: 85px 0;
-    }
-    .client_opinion {
-        padding: 70px $containerDistance;
-        .client_opinion_title {
-            @include header;
-            display: block;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .card {
-            padding: 23px;
-            &:hover {
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            }
-            .card-img-top {
-                text-align: center;
-                margin-bottom: 24px;
-                i {
-                    font-size: 30px;
-                }
-            }
-            .card-body {
                 padding: 0;
-                font-size: 15px;
-                line-height: 24px;
-                font-weight: 300;
-                .card-text {
-                    color: #575757;
-                    margin-bottom: 28px;
+            }
+            &_title {
+                h1 {
+                    font-weight: bold;
+                    font-size: 64px;
+                    line-height: 76px;
                 }
-                .client {
-                    img {
-                        border-radius: 50%;
-                        float: left;
-                        width: 56px;
-                        height: 56px;
-                        margin-right: 16px;
+            }
+            &_description {
+                color: gray;
+                i {
+                    width: 48px;
+                    height: 48px;
+                    display: block;
+                    border-radius: 50%;
+                    border: 1px solid gray;
+                    text-align: center;
+                    line-height: 48px;
+                    font-size: 20px;
+                    margin-bottom: 16px;
+                }
+            }
+        }
+        .banner {
+            height: 500px;
+            width: 100vw;
+            &_text {
+                padding-left: $containerDistance;
+                position: relative;
+                background-color: $primaryColor;
+                >div {
+                    padding-right: 30px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    h2 {
+                        margin-bottom: 40px;
+                        line-height: 36px;
+                        font-size: 28px;
+                        font-family: 'Yusei Magic', sans-serif;
+                        color: #fff;
+                        font-weight: 700;
                     }
-                    .client_info {
-                        b {
-                            display: block;
-                            font-weight: 500;
+                    span {
+                        line-height: 32px;
+                        font-size: 22px;
+                        color: #fff;
+                        font-weight: 300;
+                        display: block;
+                    }
+                    button {
+                        @include button;
+                        margin-top: 40px;
+                        background-color: #fff;
+                        opacity: 1;
+                        color: black;
+                    }
+                }
+            }
+            &_img {
+                padding: 0;
+                .img {
+                    background-image: url('../../../assets/images/Image_stardar_mask.png');
+                    background-size: cover;
+                    background-position: center;
+                    width: 100%;
+                    height: 100%
+                }
+            }
+        }
+        .announcement_title {
+            @include header;
+            text-align: center;
+            padding: 85px 0;
+        }
+        .client_opinion {
+            padding: 72px $containerDistance;
+            .client_opinion_title {
+                @include header;
+                display: block;
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            div[class*="col"] {
+                margin-bottom: 30px;
+                padding: 0 16px;
+                .card {
+                    padding: 23px;
+                    transition: 0.3s;
+                    &:hover {
+                        box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    }
+                    .card-img-top {
+                        text-align: center;
+                        margin-bottom: 24px;
+                    }
+                    .card-body {
+                        padding: 0;
+                        font-size: 15px;
+                        line-height: 24px;
+                        font-weight: 300;
+                        .card-text {
+                            color: #575757;
+                            margin-bottom: 28px;
+                        }
+                        .client {
+                            img {
+                                border-radius: 50%;
+                                float: left;
+                                width: 56px;
+                                height: 56px;
+                                margin-right: 16px;
+                                object-fit: cover;
+                            }
+                            .client_info {
+                                b {
+                                    display: block;
+                                    font-weight: 500;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
-}
-
-@media (max-width: 992px) {
-    .home {
-        .slogan {
-            padding: 100px $containerDistance-md;
-            i {
-                display: none;
-            }
-            &_title {
-                h1 {
-                    font-size: 40px;
-                    line-height: 50px;
+    
+    @media (max-width: 1200px) {
+        .home {
+            .client_opinion {
+                div[class*="col"] {
+                    margin-bottom: 30px;
+                    padding: 0 13px;
                 }
             }
-        }
-        .banner {
-            height: 768px;
-            &_img {
-                height: 360px;
-            }
-            &_text {
-                padding-left: 0;
-                text-align: center;
-                height: 408px;
-                >div {
-                    padding: 0 24px;
-                }
-            }
-        }
-        .client_opinion {
-            padding: 56px $containerDistance-md;
         }
     }
-}
-
-@media (max-width: 768px) {
-    .home {
-        .slogan {
-            padding: 100px $containerDistance-sm;
-            &_title {
-                h1 {
-                    font-size: 28px;
-                    line-height: 36px;
+    
+    @media (max-width: 992px) {
+        .home {
+            .slogan {
+                padding: 56px $containerDistance-md;
+                i {
+                    display: none;
                 }
-            }
-        }
-        .banner {
-            height: 704px;
-            &_img {
-                height: 232px;
-            }
-            &_text {
-                height: 472px;
-                padding-left: 0;
-                >div {
-                    padding: 0 $containerDistance-sm;
-                    h2 {
-                        margin-bottom: 24px;
+                &_title {
+                    h1 {
+                        font-size: 40px;
+                        line-height: 50px;
                     }
                 }
             }
-        }
-        .client_opinion {
-            padding: 48px $containerDistance-sm;
+            .banner {
+                height: 350px;
+                &_text {
+                    height: 100%;
+                    padding-left: 0;
+                    text-align: center;
+                    padding: 56px 0;
+                    >div {
+                        padding: 0 113px;
+                        text-align: center;
+                        h2 {
+                            margin-bottom: 40px;
+                        }
+                    }
+                }
+            }
+            .announcement_title {
+                padding: 53px 0;
+            }
+            .client_opinion {
+                padding: 56px $containerDistance-md;
+                div[class*="col"] {
+                    margin-bottom: 24px;
+                }
+            }
         }
     }
-}
+    
+    @media (max-width: 768px) {
+        .home {
+            .slogan {
+                padding: 48px $containerDistance-sm;
+                &_title {
+                    h1 {
+                        font-size: 28px;
+                        line-height: 36px;
+                    }
+                }
+            }
+            .banner {
+                &_text {
+                    padding-left: 0;
+                    >div {
+                        padding: 40px $containerDistance-sm;
+                        h2 {
+                            margin-bottom: 24px;
+                        }
+                    }
+                }
+            }
+            .announcement_title {
+                padding: 76px 0 40px;
+            }
+            .client_opinion {
+                padding: 48px $containerDistance-sm;
+                div[class*="col"] {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }

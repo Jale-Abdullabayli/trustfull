@@ -5,9 +5,7 @@
     </ul>
     <div class="announce_detail_title">
         <div>
-            <span *ngIf="announcement.serviceType">Online</span>
             <span *ngIf="!announcement.serviceType">Offline</span> {{announcement.name}}
-            <span *ngIf="announcement.price==0">for free</span>
         </div>
         <div class="rating">
             <i [class.activeRate]="i<=activeRate" *ngFor="let item of [0,1,2,3,4];index as i" (mouseover)="hoverStar(i)" (mouseleave)="leaveStar(i)" (click)="rate(i)" class="fa fa-star" aria-hidden="true"></i>
@@ -23,9 +21,19 @@
             <span class="value" *ngIf="announcement.price!=0">Business service</span>
         </div>
         <div class="key-value">
+            <span class="key">Category</span>
+            <span class="value">Education</span>
+        </div>
+        <div class="key-value">
             <span class="key">Location</span>
             <span class="value" *ngIf="announcement.serviceType">Online</span>
             <span class="value" *ngIf="!announcement.serviceType">Baku</span>
+        </div>
+
+        <div class="key-value">
+            <span class="key">Price</span>
+            <span class="value price" *ngIf="announcement.price">{{announcement.price | currency}}</span>
+            <span class="value price" *ngIf="!announcement.price">Free</span>
         </div>
 
         <div class="about_announcement">
@@ -46,18 +54,12 @@
         </div>
         <div class="videos">
             <div class="title">
-                <span> Videos</span>
+                <span>Videos</span>
                 <i [class.d-none]="videoOpenState" (click)="videoOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
                 <i [class.d-none]="!videoOpenState" (click)="videoOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
             </div>
-            <div class="row video_row" [class.d-none]="!videoOpenState">
-                <div class="col-sm-6 col-lg-4 col-xl-3 mb-3" *ngFor="let item of [0,1,2,3]">
-                    <div class="video">
-                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
+            <ng-image-slider *ngIf="videoOpenState" [images]="videos" #nav></ng-image-slider>
+
         </div>
     </div>
 
@@ -87,45 +89,78 @@
                     <i [class.d-none]="!contactOpenState" (click)="contactOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
                 </div>
                 <div class="contact_info" [class.d-none]="!contactOpenState">
-                    <span>info@pixsellz.io</span>
-                    <span>371 Adrien Prairie Suite 538 Palo Alto, CA</span>
-                    <span>+994555555555 <a target="blank" href="https://api.whatsapp.com/send?phone=+994555555555"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></span>
+                    <div>
+                        <a target="blank" href="mailto:someone@example.com">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </a>
+                        <span>info@pixsellz.io</span>
+                    </div>
+                    <div>
+                        <a target="blank" href="https://maps.google.com/?q=Baku">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </a>
+                        <span>371 Adrien Prairie Suite 538 Palo Alto, CA</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>+994555555555</span>
+                    </div>
+                    <div>
+                        <a target="blank" href="https://api.whatsapp.com/send?phone=+994555555555">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                        <span>+994555555555</span>
+                    </div>
+                    <div>
+                        <a target="blank" href="https://t.me/+994555555555">
+                            <i class="fa fa-telegram" aria-hidden="true"></i></a>
+                        <span>+994555555555</span>
+                    </div>
                 </div>
             </div>
             <div class="certificate">
                 <div class="title">
-                    <span>Certificates (documents)</span>
+                    <span>Certificates</span>
                     <i [class.d-none]="certificateOpenState" (click)="certificateOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
                     <i [class.d-none]="!certificateOpenState" (click)="certificateOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
                 </div>
-                <div class="row" [class.d-none]="!certificateOpenState">
-                    <div class="col-sm-6 col-lg-4 col-xl-3 mb-3" *ngFor="let item of [0,1,2,3]">
-                        <div class="certificate_photo">
-                            <img src="../../../assets/images/istockphoto-1034467592-612x612.jpg" alt="">
-                        </div>
-                    </div>
-
+                <ng-image-slider *ngIf="certificateOpenState" [images]="certificateImages" #nav></ng-image-slider>
+            </div>
+            <div class="diploma">
+                <div class="title">
+                    <span>Diplomas</span>
+                    <i [class.d-none]="diplomaOpenState" (click)="diplomaOpenState=true" class="fa fa-angle-down" aria-hidden="true"></i>
+                    <i [class.d-none]="!diplomaOpenState" (click)="diplomaOpenState=false" class="fa fa-angle-up" aria-hidden="true"></i>
                 </div>
+                <ng-image-slider *ngIf="diplomaOpenState" [images]="diplomaImages" #nav></ng-image-slider>
             </div>
         </div>
 
     </div>
-
+    <div>Some tags before</div>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>Slide 1</ng-template>
+        <ng-template carouselSlide>Slide 2</ng-template>
+        <ng-template carouselSlide>Slide 3</ng-template>
+    </owl-carousel-o>
+    <div>Some tags after</div>
     <div class="similar_announcement">
         <span class="similar_announcement_title">Similar announcements</span>
         <div class="row announce_row">
-            <div class="col-xl-3 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch" *ngFor="let similarAnnouncement of similarAnnouncements">
+            <div class="col-xl-3 col-lg-4 col-sm-6 d-flex align-items-stretch" *ngFor="let similarAnnouncement of similarAnnouncements">
                 <div class="card">
-                    <img class="card-img-top" [src]="similarAnnouncement.imgUrl" onerror='this.src="../../../assets/images/defaultImg.jpg"' alt="Card image cap">
+                    <div class="card-img-top" [style.backgroundImage]="'url('+ similarAnnouncement.imgUrl +')'" *ngIf="similarAnnouncement.imgUrl"></div>
+                    <div class="card-img-top" *ngIf="!similarAnnouncement.imgUrl"></div>
                     <div class="card-body">
                         <h5 class="card-title">{{similarAnnouncement.name}}</h5>
                         <p class="card-text">
-                            <span class="price" *ngIf="similarAnnouncement.price!=0">{{similarAnnouncement.price | currency}}</span>
+                            <span class="price" *ngIf="similarAnnouncement.price!=0">{{similarAnnouncement.price |
+                                currency}}</span>
                             <span class="price" *ngIf="similarAnnouncement.price==0">Free</span>
-                            <span class="owner"> by <a>{{owners[similarAnnouncement.ownerId-1].name}} {{owners[similarAnnouncement.ownerId-1].surname}}</a></span>
+                            <span class="owner"> by <a>{{owners[similarAnnouncement.ownerId-1].name}}
+                                    {{owners[similarAnnouncement.ownerId-1].surname}}</a></span>
                             <i *ngFor="let item of [0,1,2,3,4]" class="fa fa-star" aria-hidden="true"></i>
                             <a class="detail" [routerLink]="['/announcement-detail',similarAnnouncement.id]">Detail
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                <img src="../../../assets/images/arrow.png" alt="arrow">
                             </a>
                         </p>
                     </div>

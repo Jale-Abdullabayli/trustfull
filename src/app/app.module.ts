@@ -7,18 +7,6 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//components
-import { LogInComponent } from '../app/components/log-in/log-in.component';
-import { RegistrationComponent } from '../app/components/registration/registration.component';
-import { AnnouncementComponent } from '../app/components/announcement/announcement.component';
-import { AnnouncementDetailComponent } from '../app/components/announcement-detail/announcement-detail.component';
-import { CreateAnnouncementComponent } from '../app/components/create-announcement/create-announcement.component';
-import { HomeComponent } from '../app/components/home/home.component';
-import { NavComponent } from '../app/components/nav/nav.component';
-import { FavComponent } from '../app/components/fav/fav.component';
-import { FooterComponent } from '../app/components/footer/footer.component';
-import { PersonalDataComponent } from '../app/components/personal-data/personal-data.component';
-
 
 
 //modules
@@ -30,11 +18,31 @@ import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { TextMaskModule } from 'angular2-text-mask';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgImageSliderModule } from 'ng-image-slider';
+
+//components
+import { LogInComponent } from './components/log-in/log-in.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
+import { AnnouncementDetailComponent } from './components/announcement-detail/announcement-detail.component';
+import { CreateAnnouncementComponent } from './components/create-announcement/create-announcement.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavComponent } from './components/nav/nav.component';
+import { FavComponent } from './components/fav/fav.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PersonalDataComponent } from './components/personal-data/personal-data.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
+import { AnnouncementListComponent } from './components/announcement-list/announcement-list.component';
+
 
 
 const modules =[
+  NgxPaginationModule,
   MatSelectModule,
   MatFormFieldModule,
   MatIconModule,
@@ -43,9 +51,10 @@ const modules =[
   ReactiveFormsModule,
   MatRadioModule,
   MatExpansionModule,
-  MatDatepickerModule,
-  MatNativeDateModule
-
+  TextMaskModule,
+  MatCheckboxModule,
+  CarouselModule,
+  NgImageSliderModule
 ]
 const components = [
   LogInComponent,
@@ -57,13 +66,14 @@ const components = [
   NavComponent,
   FooterComponent,
   FavComponent,
-  PersonalDataComponent
+  PersonalDataComponent,
+  ForgotPasswordComponent
 ]
 
 @NgModule({
   declarations: [
     AppComponent,    
-    components
+    components, AnnouncementListComponent, TermsConditionsComponent
   ],
   imports: [
     BrowserModule,

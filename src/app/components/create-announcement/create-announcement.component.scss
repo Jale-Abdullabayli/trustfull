@@ -13,14 +13,12 @@
         }
     }
     .form_row {
+        position: relative;
         >div[class*=col] {
             .form-field {
                 @include form-field;
                 input[type=file] {
                     display: none;
-                }
-                textarea {
-                    height: 111px;
                 }
             }
             .choose_location {
@@ -30,12 +28,14 @@
             }
             .price {
                 input {
-                    display: inline-block;
                     width: 70%;
                 }
                 select {
                     width: 25%;
                     float: right;
+                }
+                small {
+                    display: block
                 }
             }
             .file {
@@ -44,32 +44,9 @@
             button[type=submit] {
                 @include button;
                 background-color: #00AA79;
-                float: right;
-            }
-            #date_range {
-                display: block;
-                width: 100%;
-                margin-bottom: 22px;
-                margin-top: 10px;
-                background-color: #fff;
-                border: 2px solid lightgray;
-                outline: none;
-                padding: 10px;
-                border-radius: 5px;
-                mat-date-range-input {
-                    input {
-                        margin: 0;
-                    }
-                }
-                &:focus {
-                    border: 2px solid $primaryColor;
-                }
-            }
-             ::ng-deep .mat-form-field-underline {
-                display: none;
-            }
-             ::ng-deep .mat-form-field-wrapper {
-                margin-bottom: -1.25em;
+                position: absolute;
+                right: 0;
+                bottom: 16px;
             }
         }
     }

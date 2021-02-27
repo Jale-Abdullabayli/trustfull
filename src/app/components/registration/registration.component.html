@@ -9,36 +9,52 @@
                 <div class="form-field">
                     <input [class.invalid]="Name.invalid && Name.touched" formControlName='name' name="name" type="text" placeholder=" ">
                     <label for="">Name</label>
+                    <small *ngIf="Name.errors?.required && Name.touched">Name is required</small>
+                    <small *ngIf="Name.errors?.pattern && Name.touched">Name must be only letters</small>
+                    <small *ngIf="Name.errors?.minlength && Name.touched">Name must be at least 2 character</small>
                 </div>
                 <div class="form-field">
                     <input [class.invalid]="Surname.invalid && Surname.touched" formControlName='surname' name="surname" type="text" placeholder=" ">
                     <label for="">Surname</label>
+                    <small *ngIf="Surname.errors?.required && Surname.touched">Surname is required</small>
+                    <small *ngIf="Surname.errors?.pattern && Surname.touched">Surname must be only letters</small>
+                    <small *ngIf="Surname.errors?.minlength && Surname.touched">Surname must be at least 5 character</small>
                 </div>
                 <div class="form-field">
                     <input [class.invalid]="Email.invalid && Email.touched" formControlName='email' name="email" type="email" placeholder=" ">
                     <label for="">Email</label>
+                    <small *ngIf="Email.errors?.required && Email.touched">Email is required</small>
+                    <small *ngIf="Email.errors?.email && Email.touched">Invalid email</small>
                 </div>
                 <div class="form-field password">
                     <input [class.invalid]="Password.invalid && Password.touched" formControlName='password' name="password" [type]="!passwordVisibility ? 'password' : 'text'" placeholder=" ">
                     <label for="">Password</label>
                     <i (click)="passwordVisibility=!passwordVisibility" [class.passwordVisible]="passwordVisibility" class="fa fa-eye" aria-hidden="true"></i>
+                    <small *ngIf="Password.errors?.required && Password.touched">Password is required</small>
                 </div>
                 <div class="form-field password">
                     <input [class.invalid]="RepeatPassword.invalid && RepeatPassword.touched" formControlName='repeatPassword' name="repeatPassword" [type]="!RepeatPasswordVisibility ? 'password' : 'text'" placeholder=" ">
                     <label for="">Repeat password</label>
                     <i (click)="RepeatPasswordVisibility=!RepeatPasswordVisibility" [class.passwordVisible]="RepeatPasswordVisibility" class="fa fa-eye" aria-hidden="true"></i>
+                    <small *ngIf="RepeatPassword.errors?.required && RepeatPassword.touched">Password is required</small>
+                    <small *ngIf="RepeatPassword.value!=Password.value && RepeatPassword.touched && !RepeatPassword.errors?.required">Password doesn't match</small>
+                </div>
+                <div class="terms_and_conditions">
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" (change)="termsAndConditionsChecked=true">Agree with <a routerLink="/terms-conditions">Terms and Conditions</a>
+                        </mat-checkbox>
+                    </section>
                 </div>
                 <div class="submit">
                     <button type="submit" class="btn">Register</button> or
                     <div class="icon"><i class="fa fa-facebook-official" aria-hidden="true"></i></div>
                     <div class="icon"><i class="fa fa-google" aria-hidden="true"></i></div>
                 </div>
-
             </form>
         </div>
         <div class="col-md-6 personal_data">
             <span>B system is a sketch design system created with the proposal of maximizing the performance in the construction of digital touch points.</span>
-            <span class="register_text">
+            <span class="personal_transition">
                 If you want to create announcement. Please after registration fill personal data from <a routerLink='/personal-data'>here.</a>
             </span>
         </div>

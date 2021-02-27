@@ -17,9 +17,6 @@
                         @include button;
                         width: 100%;
                         margin-top: 20px;
-                        &:hover {
-                            opacity: 0.9;
-                        }
                     }
                 }
                 .profil {
@@ -31,8 +28,9 @@
                         width: 134px;
                         img {
                             border-radius: 50%;
-                            height: 100%;
-                            width: 100%;
+                            height: 134px;
+                            width: 134px;
+                            object-fit: cover;
                         }
                         i {
                             cursor: pointer;
@@ -72,52 +70,85 @@
                 span {
                     font-size: 20px;
                     font-weight: 500;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: inline-block;
                 }
                 .search {
-                    @include search;
-                    float: right;
+                    width: 100%;
+                    border: 1px solid gray;
+                    border-radius: 5px;
                     position: relative;
+                    padding: 5px;
+                    input {
+                        height: 100%;
+                        width: 90%;
+                        border: none;
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
                     i {
+                        color: gray;
                         position: absolute;
-                        right: 5px;
+                        right: 10px;
                         top: 50%;
                         transform: translateY(-50%);
                     }
                 }
             }
-            .row {
+            .announcement_row {
                 border: 1px solid #F7F7F7;
                 padding: 20px;
+                &:hover {
+                    .date {
+                        background-color: #D5FDF1;
+                        border-bottom: 4px solid #009469;
+                    }
+                }
                 .date {
+                    height: 70px;
                     background-color: #F7F7F7;
+                    border-bottom: 4px solid #979797;
                     position: relative;
-                    min-height: 100%;
                     span {
                         position: absolute;
                         left: 50%;
                         top: 50%;
                         transform: translate(-50%, -50%);
+                        font-weight: 500;
                     }
                 }
                 .name {
                     .announcement_name {
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 24px;
+                        display: block;
+                    }
+                    .description {
                         font-size: 15px;
                         line-height: 24px;
-                        font-weight: 500;
+                        color: #575757;
+                        font-weight: 300;
+                        margin-top: 16px;
                         display: block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                     }
                 }
                 .edit {
                     position: relative;
                     .btn {
+                        @include button;
                         position: relative;
                         color: white;
                         width: 45%;
                         top: 50%;
                         transform: translateY(-50%);
-                        &:first-child {
-                            background-color: $primaryColor;
-                        }
+                        padding: 8px 0;
                         &:last-child {
                             background-color: #EF0021;
                             margin-left: 10px;
@@ -147,11 +178,38 @@
             }
             .my_announcements {
                 padding: 50px $containerDistance-sm;
+                .title {
+                    .search {
+                        margin: 0 auto;
+                        width: 80%;
+                    }
+                }
                 .row {
                     text-align: center;
                     >div {
                         margin: 10px;
                     }
+                }
+            }
+        }
+        
+        @media (max-width:576px) {
+            .my_announcements {
+                padding: 50px $containerDistance-sm;
+                .title {
+                    .search {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        
+        .pagination_controls ::ng-deep .ngx-pagination {
+            margin-top: 20px;
+            text-align: center;
+            * {
+                &:focus {
+                    outline: none;
                 }
             }
         }

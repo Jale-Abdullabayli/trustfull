@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -11,10 +12,15 @@ export class LogInComponent implements OnInit {
   passwordVisibility: boolean = false;
   logInForm: FormGroup;
   logined:boolean=false;
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
     this.logInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -26,7 +32,6 @@ export class LogInComponent implements OnInit {
   get Password(){
     return this.logInForm.get('password');
   }
-
   markAsTouched(form: FormGroup | FormArray) {
     for (let control in form.controls) {
       if (form.controls[control] instanceof FormControl) {

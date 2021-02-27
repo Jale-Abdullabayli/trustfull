@@ -1,0 +1,10 @@
+@import '../../../styles.scss';
+.terms_and_conditions {
+    padding: 50px $containerDistance;
+    >span {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+}

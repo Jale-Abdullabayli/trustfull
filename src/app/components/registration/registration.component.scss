@@ -10,6 +10,18 @@
             .form-field {
                 @include form-field;
             }
+            .terms_and_conditions {
+                 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+                .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+                    background-color: $primaryColor;
+                }
+                a {
+                    color: $primaryColor;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
             .submit {
                 display: flex;
                 align-items: center;
@@ -49,17 +61,16 @@
                 display: block;
                 margin-bottom: 20px;
             }
-            .register_text {
-                font-weight: 700;
+            .personal_transition {
+                font-weight: 500;
                 font-size: 15px;
                 line-height: 24px;
                 color: #000000;
                 display: block;
                 a {
-                    text-decoration: underline;
-                    color: black;
+                    color: $primaryColor;
                     &:hover {
-                        color: $primaryColor;
+                        text-decoration: underline;
                     }
                 }
             }
