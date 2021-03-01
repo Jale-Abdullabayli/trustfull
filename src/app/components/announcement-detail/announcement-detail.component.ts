@@ -28,7 +28,6 @@ export class AnnouncementDetailComponent implements OnInit {
   contactOpenState = false;
   certificateOpenState = false;
   diplomaOpenState = false;
-
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,

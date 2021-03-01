@@ -32,7 +32,6 @@ import { AnnouncementDetailComponent } from './components/announcement-detail/an
 import { CreateAnnouncementComponent } from './components/create-announcement/create-announcement.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
-import { FavComponent } from './components/fav/fav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PersonalDataComponent } from './components/personal-data/personal-data.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
@@ -65,7 +64,6 @@ const components = [
   HomeComponent,
   NavComponent,
   FooterComponent,
-  FavComponent,
   PersonalDataComponent,
   ForgotPasswordComponent
 ]
